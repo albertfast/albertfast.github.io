@@ -39,6 +39,9 @@ function decodeText() {
         decodedText += decodedRaw.match(/.{1,8}/g).map(byte => String.fromCharCode(parseInt(byte, 2))).join('');
     });
     
+    // Remove any null characters ('\0') from the decoded text
+    decodedText = decodedText.replace(/\0/g, '');
+    
     document.getElementById('decodedText').textContent = decodedText;
 }
 
