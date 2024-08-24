@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homework 1 for JavaScript, jQuery, AJAX course at CCSF">
+    <title>"HTML:5" - Homework 1</title>
+    <link rel="stylesheet" href="hw1.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CNIT 133 - JavaScript, jQuery, AJAX</h1>
+            <p>Section 1</p>
+        </header>
+        <div class="main-content">
+            <section>
+                <h2>Homework Assignments</h2>
+                <ul>
+                    <li><a href="https://hills.ccsf.edu/~asahiner/hw2.html">Homework 2</a></li>
+                    <li><a href="#">Homework 3</a></li>
+                    <li><a href="#">Homework 4</a></li>
+                    <li><a href="#">Homework 5</a></li>
+                    <li><a href="#">Homework 6</a></li>
+                    <li><a href="#">Homework 7</a></li>
+                    <li><a href="#">Homework 8</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>About Me</h2>
+                <p>Hi, I'm Ahmet Sahiner. I’m currently enrolled in CNIT 133 at CCSF. My passion is to learn and master web development technologies, including HTML, CSS, JavaScript, and more. I'm excited to continue my journey in programming and explore new challenges. I’ll share my homework on this page. For contact, you can fill this form.</p>
+                <div id="gif-container"></div>
+            </section>
+            <form onsubmit="return checkAge()">
+                <h2>Contact Me</h2>
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname" placeholder="Your Name..."><br>
+                
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname" placeholder="Your Lastname..."><br>
+                
+                <label for="birthdate">Birth Date:</label><br>
+                <input type="date" id="birthdate" name="birthdate"><br>
+                
+                <label for="languages">Which programming languages would you like to learn?</label><br>
+                <select id="languages" name="languages">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="cpp">C++</option>
+                    <option value="php">PHP</option>
+                    <option value="html_css">HTML & CSS</option>
+                </select><br><br>
+                
+                <input type="submit" value="Submit">
+                <p id="ageError" style="display:none; color:red;">Sorry, you are not eligible to fill out this form.</p>
+                <p id="ageSuccess" style="display:none; color:green;">Thank you! Your registration was successfully completed.</p>
+                <p id="form-note">This form was created to practice form creation and button functionalities in HTML5. New techniques will be applied as we progress.</p>
+            </form>
+        </div>
+        <footer>
+            <p>&copy; 2024 CNIT 133. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="hw1.js"></script>
+</body>
+</html>
