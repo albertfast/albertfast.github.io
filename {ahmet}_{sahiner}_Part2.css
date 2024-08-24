@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('{ahmet}_{sahiner}_Part2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #00aaff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-width: 600px;
+    width: 100%;
+    grid: auto-flow / 1fr 1fr 1fr;
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #00aaff;
+}
+
+.input-section,
+.button-section,
+.output-section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: content-box;
+    background-color: #333;
+    color: #fff;
+    grid: 90% / 1fr 1fr 1fr;
+    resize: vertical; /* Prevent manual resizing */
+    overflow: hidden; /* Hide overflow */
+    white-space: nowrap; /* Ensure no line breaks */
+}
+
+textarea {
+    height: 35px; /* Set the default height */
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row; /* Keep the buttons in a row */
+    gap: 10px; /* Space between the buttons */
+    margin-top: 15px; /* Add margin to push the buttons lower */
+}
+
+
+button {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+    flex-direction: row-reverse;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #008fcc;
+}
+
+.output-section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+#resultsContainer {
+    max-height: 150px;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00aaff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333;
+}
