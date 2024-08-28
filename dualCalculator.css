@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('stringEncoder.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #00aaff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px; /* Tablo arası boşluk */
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    width: 45%; /* Her iki tablo eşit genişlikte olsun */
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    color: #00aaff;
+}
+
+.input-section,
+.button-section,
+.output-section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #fff;
+}
+
+textarea {
+    height: 35px;
+}
+
+.button-section {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+button {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #008fcc;
+}
+
+.output-section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+#resultsContainer {
+    max-height: 150px;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00aaff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333;
+}
