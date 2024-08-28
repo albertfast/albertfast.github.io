@@ -11,7 +11,12 @@ function encodeText() {
     
     blocks.forEach(block => {
         const binaryString = textToBinary(block).padEnd(32, '0');
+        console.log(`Block: ${block}`);
+        console.log(`Binary (before manipulation): ${binaryString}`);
+
         const decodedRaw = binaryString.match(/.{1,8}/g).reverse().join('');
+        console.log(`Decoded Raw (reversed bytes): ${decodedRaw}`);
+
         const encodedBinary = applyBitManipulation(decodedRaw);
         encodedValues.push(parseInt(encodedBinary, 2));
     });
@@ -27,8 +32,15 @@ function decodeText() {
     
     encodedValues.forEach(value => {
         const encodedBinary = value.toString(2).padStart(32, '0');
+        console.log(`Encoded Decimal: ${value}`);
+        console.log(`Encoded Binary: ${encodedBinary}`);
+
         const decodedBinary = reverseBitManipulation(encodedBinary);
+        console.log(`Decoded Binary (before reversing bytes): ${decodedBinary}`);
+
         const decodedRaw = decodedBinary.match(/.{1,8}/g).reverse().join('');
+        console.log(`Decoded Raw (after reversing bytes): ${decodedRaw}`);
+
         decodedText += decodedRaw.match(/.{1,8}/g).map(byte => String.fromCharCode(parseInt(byte, 2))).join('');
     });
     
@@ -66,9 +78,12 @@ function applyBitManipulation(binaryString) {
     const manipulatedBits = new Array(32);
     const bitMap = [0, 8, 16, 24, 1, 9, 17, 25, 2, 10, 18, 26, 3, 11, 19, 27, 4, 12, 20, 28, 5, 13, 21, 29, 6, 14, 22, 30, 7, 15, 23, 31];
 
+    console.log(`BitMap: ${bitMap}`);
+
     // Apply the bit manipulation using the bit map
     bitMap.forEach((bitIndex, i) => {
         manipulatedBits[i] = binaryString[bitIndex];
+        console.log(`Mapping bit ${bitIndex} from original position to ${i} -> ${binaryString[bitIndex]}`);
     });
 
     const encodedBinary = manipulatedBits.join('');
@@ -85,9 +100,12 @@ function reverseBitManipulation(encodedBinary) {
     const reversedBits = new Array(32);
     const bitMap = [0, 8, 16, 24, 1, 9, 17, 25, 2, 10, 18, 26, 3, 11, 19, 27, 4, 12, 20, 28, 5, 13, 21, 29, 6, 14, 22, 30, 7, 15, 23, 31];
 
+    console.log(`BitMap for Reverse: ${bitMap}`);
+
     // Reverse the bit manipulation using the bit map
     bitMap.forEach((bitIndex, i) => {
         reversedBits[bitIndex] = encodedBinary[i];
+        console.log(`Reversing bit ${i} from manipulated position to ${bitIndex} -> ${encodedBinary[i]}`);
     });
 
     const decodedBinary = reversedBits.join('');
