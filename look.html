@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Temperature Converter</h1>
+    
+    <label for="temperature">Enter Temperature:</label>
+    <input type="number" id="temperature" placeholder="Enter temperature">
+    
+    <br>
+    
+    <button id="toCelsius">Convert to Celsius</button>
+    <button id="toFahrenheit">Convert to Fahrenheit</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    const degreeSymbol = "\u00B0";
+
+    $(document).ready(function() {
+        $('#toCelsius').click(function() {
+            let fahrenheit = parseFloat($('#temperature').val());
+            if (!isNaN(fahrenheit)) {
+                let celsius = (5 / 9) * (fahrenheit - 32);
+                $('#result').text(`${Math.round(fahrenheit)}${degreeSymbol}F is ${Math.round(celsius)}${degreeSymbol}C`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        $('#toFahrenheit').click(function() {
+            let celsius = parseFloat($('#temperature').val());
+            if (!isNaN(celsius)) {
+                let fahrenheit = (celsius * 9 / 5) + 32;
+                $('#result').text(`${Math.round(celsius)}${degreeSymbol}C is ${Math.round(fahrenheit)}${degreeSymbol}F`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
