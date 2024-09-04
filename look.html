@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter</title>
+    <title>Multi-Unit Converter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,16 +64,29 @@
 <body>
 
 <div class="container">
-    <h1>Temperature Converter</h1>
+    <h1>Multi-Unit Converter</h1>
     
-    <label for="temperature">Enter Temperature:</label>
-    <input type="number" id="temperature" placeholder="Enter temperature">
-    
+    <!-- Input -->
+    <label for="value">Enter Value:</label>
+    <input type="number" id="value" placeholder="Enter a value">
+
+    <!-- Conversion buttons -->
     <br>
-    
+    <h3>Temperature Conversion</h3>
     <button id="toCelsius">Convert to Celsius</button>
     <button id="toFahrenheit">Convert to Fahrenheit</button>
 
+    <h3>Weight Conversion</h3>
+    <button id="toKg">Convert lbs to kg</button>
+    <button id="toLbs">Convert kg to lbs</button>
+
+    <h3>Length Conversion</h3>
+    <button id="toCm">Convert inch to cm</button>
+    <button id="toInchCm">Convert cm to inch</button>
+    <button id="toFeet">Convert inch to feet</button>
+    <button id="toInchFeet">Convert feet to inch</button>
+
+    <!-- Result -->
     <div class="result" id="result"></div>
 </div>
 
@@ -81,8 +94,9 @@
     const degreeSymbol = "\u00B0";
 
     $(document).ready(function() {
+        // Temperature conversion
         $('#toCelsius').click(function() {
-            let fahrenheit = parseFloat($('#temperature').val());
+            let fahrenheit = parseFloat($('#value').val());
             if (!isNaN(fahrenheit)) {
                 let celsius = (5 / 9) * (fahrenheit - 32);
                 $('#result').text(`${Math.round(fahrenheit)}${degreeSymbol}F is ${Math.round(celsius)}${degreeSymbol}C`);
@@ -92,10 +106,72 @@
         });
 
         $('#toFahrenheit').click(function() {
-            let celsius = parseFloat($('#temperature').val());
+            let celsius = parseFloat($('#value').val());
             if (!isNaN(celsius)) {
                 let fahrenheit = (celsius * 9 / 5) + 32;
                 $('#result').text(`${Math.round(celsius)}${degreeSymbol}C is ${Math.round(fahrenheit)}${degreeSymbol}F`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        // Weight conversion
+        $('#toKg').click(function() {
+            let lbs = parseFloat($('#value').val());
+            if (!isNaN(lbs)) {
+                let kg = lbs * 0.453592;
+                $('#result').text(`${lbs} lbs is ${kg.toFixed(2)} kg`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        $('#toLbs').click(function() {
+            let kg = parseFloat($('#value').val());
+            if (!isNaN(kg)) {
+                let lbs = kg / 0.453592;
+                $('#result').text(`${kg} kg is ${lbs.toFixed(2)} lbs`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        // Length conversion
+        $('#toCm').click(function() {
+            let inch = parseFloat($('#value').val());
+            if (!isNaN(inch)) {
+                let cm = inch * 2.54;
+                $('#result').text(`${inch} inches is ${cm.toFixed(2)} cm`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        $('#toInchCm').click(function() {
+            let cm = parseFloat($('#value').val());
+            if (!isNaN(cm)) {
+                let inch = cm / 2.54;
+                $('#result').text(`${cm} cm is ${inch.toFixed(2)} inches`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        $('#toFeet').click(function() {
+            let inch = parseFloat($('#value').val());
+            if (!isNaN(inch)) {
+                let feet = inch / 12;
+                $('#result').text(`${inch} inches is ${feet.toFixed(2)} feet`);
+            } else {
+                $('#result').text('Please enter a valid number.');
+            }
+        });
+
+        $('#toInchFeet').click(function() {
+            let feet = parseFloat($('#value').val());
+            if (!isNaN(feet)) {
+                let inch = feet * 12;
+                $('#result').text(`${feet} feet is ${inch.toFixed(2)} inches`);
             } else {
                 $('#result').text('Please enter a valid number.');
             }
