@@ -4,185 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Unit Converter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
-        input[type="number"] {
-            padding: 10px;
-            width: calc(100% - 22px);
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            background-color: #28a745;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <div class="container">
+        <h1>Multi-Unit Converter</h1>
 
-<div class="container">
-    <h1>Multi-Unit Converter</h1>
+        <div class="conversion-section">
+            <h3>Temperature Conversion</h3>
+            <input type="number" id="tempInput" placeholder="Enter temperature">
+            <br>
+            <button id="toCelsius">Convert to Celsius</button>
+            <button id="toFahrenheit">Convert to Fahrenheit</button>
+        </div>
 
-    <h3>Temperature Conversion</h3>
-    <input type="number" id="tempInput" placeholder="Enter temperature">
-    <br>
-    <button id="toCelsius">Convert to Celsius</button>
-    <button id="toFahrenheit">Convert to Fahrenheit</button>
+        <div class="conversion-section">
+            <h3>Weight Conversion</h3>
+            <input type="number" id="weightInput" placeholder="Enter weight">
+            <br>
+            <button id="toKg">Convert lbs to kg</button>
+            <button id="toLbs">Convert kg to lbs</button>
+        </div>
 
-    <h3>Weight Conversion</h3>
-    <input type="number" id="weightInput" placeholder="Enter weight">
-    <br>
-    <button id="toKg">Convert lbs to kg</button>
-    <button id="toLbs">Convert kg to lbs</button>
+        <div class="conversion-section">
+            <h3>Length Conversion</h3>
+            <input type="number" id="lengthInputInches" placeholder="Enter length in inches">
+            <br>
+            <button id="toCm">Convert inch to cm</button>
+            <button id="toFeet">Convert inch to feet</button>
+            <input type="number" id="lengthInputCm" placeholder="Enter length in cm">
+            <button id="toInchCm">Convert cm to inch</button>
+        </div>
 
-    <h3>Length Conversion</h3>
-    <input type="number" id="inchInput" placeholder="Enter inches">
-    <br>
-    <button id="toCm">Convert inch to cm</button>
-    <button id="toFeet">Convert inch to feet</button>
+        <div id="result" class="result"></div>
+    </div>
 
-    <input type="number" id="cmInput" placeholder="Enter cm">
-    <br>
-    <button id="toInchCm">Convert cm to inch</button>
-
-    <input type="number" id="feetInput" placeholder="Enter feet">
-    <br>
-    <button id="toInchFeet">Convert feet to inch</button>
-
-    <div class="result" id="result"></div>
-</div>
-
-<script>
-    const degreeSymbol = "\u00B0";
-
-    $(document).ready(function() {
-        // Temperature conversion
-        $('#toCelsius').click(function() {
-            let fahrenheit = parseFloat($('#tempInput').val());
-            if (!isNaN(fahrenheit)) {
-                let celsius = (5 / 9) * (fahrenheit - 32);
-                $('#result').text(`${Math.round(fahrenheit)}${degreeSymbol}F is ${Math.round(celsius)}${degreeSymbol}C`);
-            } else {
-                $('#result').text('Please enter a valid temperature.');
-            }
-        });
-
-        $('#toFahrenheit').click(function() {
-            let celsius = parseFloat($('#tempInput').val());
-            if (!isNaN(celsius)) {
-                let fahrenheit = (celsius * 9 / 5) + 32;
-                $('#result').text(`${Math.round(celsius)}${degreeSymbol}C is ${Math.round(fahrenheit)}${degreeSymbol}F`);
-            } else {
-                $('#result').text('Please enter a valid temperature.');
-            }
-        });
-
-        // Weight conversion
-        $('#toKg').click(function() {
-            let lbs = parseFloat($('#weightInput').val());
-            if (!isNaN(lbs)) {
-                let kg = lbs * 0.453592;
-                $('#result').text(`${lbs} lbs is ${kg.toFixed(2)} kg`);
-            } else {
-                $('#result').text('Please enter a valid weight.');
-            }
-        });
-
-        $('#toLbs').click(function() {
-            let kg = parseFloat($('#weightInput').val());
-            if (!isNaN(kg)) {
-                let lbs = kg / 0.453592;
-                $('#result').text(`${kg} kg is ${lbs.toFixed(2)} lbs`);
-            } else {
-                $('#result').text('Please enter a valid weight.');
-            }
-        });
-
-        // Length conversion
-        $('#toCm').click(function() {
-            let inch = parseFloat($('#inchInput').val());
-            if (!isNaN(inch)) {
-                let cm = inch * 2.54;
-                $('#result').text(`${inch} inches is ${cm.toFixed(2)} cm`);
-            } else {
-                $('#result').text('Please enter a valid length in inches.');
-            }
-        });
-
-        $('#toInchCm').click(function() {
-            let cm = parseFloat($('#cmInput').val());
-            if (!isNaN(cm)) {
-                let inch = cm / 2.54;
-                $('#result').text(`${cm} cm is ${inch.toFixed(2)} inches`);
-            } else {
-                $('#result').text('Please enter a valid length in cm.');
-            }
-        });
-
-        $('#toFeet').click(function() {
-            let inch = parseFloat($('#inchInput').val());
-            if (!isNaN(inch)) {
-                let feet = inch / 12;
-                $('#result').text(`${inch} inches is ${feet.toFixed(2)} feet`);
-            } else {
-                $('#result').text('Please enter a valid length in inches.');
-            }
-        });
-
-        $('#toInchFeet').click(function() {
-            let feet = parseFloat($('#feetInput').val());
-            if (!isNaN(feet)) {
-                let inch = feet * 12;
-                $('#result').text(`${feet} feet is ${inch.toFixed(2)} inches`);
-            } else {
-                $('#result').text('Please enter a valid length in feet.');
-            }
-        });
-    });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
