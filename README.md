@@ -1,49 +1,67 @@
-# CNIT 133 - JavaScript, jQuery, AJAX Course
+# Bit Manipulation Encoder/Decoder
 
 ## Overview
 
-This repository contains the homework assignments for the CNIT 133 course at CCSF. The assignments focus on HTML, CSS, and JavaScript to build a simple web-based e-portfolio. Below is a brief overview of each homework assignment:
+This project is a **Bit Manipulation Encoder/Decoder** web application that allows users to encode and decode text using a custom scramble map and bit manipulation techniques. The app is built using HTML, CSS, and JavaScript and demonstrates character scrambling and binary-based encoding.
 
-## Homework 1
+## Table of Contents
+- [About](#about)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Description:
-Homework 1 is the foundational assignment where you create the main page of your e-portfolio. This page will act as the central hub, linking to all other homework assignments throughout the course.
+### About
+The **Bit Manipulation Encoder/Decoder** is an interactive web-based application that converts input text into a scrambled version, followed by bit manipulation to further encode it. Users can input a decimal value representing the encoded text and decode it back to its original form.
 
-### Key Features:
-- **HTML5 and CSS:** The main page is built using valid HTML5 and CSS code according to the latest standards.
-- **Responsive Design:** The page is designed to be responsive and visually appealing across various screen sizes.
-- **Navigation Links:** The page contains a list of links to future homework assignments (Homework 2 through Homework 8).
-- **About Me Section:** A brief introduction is provided in the "About Me" section to personalize the page.
-- **Contact Form:** A simple HTML5 form is included for visitors to contact the student. The form includes basic input validation using JavaScript.
+This project demonstrates basic cryptographic principles like substitution ciphers and binary manipulation. It can serve as a learning tool for understanding how data encoding and decoding work at a lower level.
 
-### How to Access:
-- Open the `hw1.html` file in your browser to view the main page of the e-portfolio.
-- Ensure that all links on the page are functioning correctly and lead to the corresponding assignments.
+### Features
+- **Custom Scramble Map:** Each character in the input is mapped to a new character using a predefined substitution cipher.
+- **Bit Manipulation:** After scrambling, the binary representation of the text is manipulated to further obfuscate the data.
+- **Encode Text:** Converts input text into scrambled and encoded binary.
+- **Decode Text:** Converts the scrambled and encoded decimal back to its original form.
+- **Clear Functionality:** Allows users to reset input and output fields.
+- **Responsive UI:** Simple and responsive user interface for easy interaction.
 
-## Homework 2
+### How It Works
+- **Scramble Map:** The input text is passed through a substitution cipher (scramble map), where each character is replaced by another based on a predefined key-value mapping.
+  - Example: `'A' -> 'J'`, `'B' -> 'S'`, `'C' -> 'D'`.
+  
+- **Binary Encoding:** After the text is scrambled, it is converted into its binary form, where each character is represented as an 8-bit binary string. The binary string is then manipulated by rearranging the bits.
 
-### Description:
-Homework 2 focuses on embedding GIFs and further exploring HTML and CSS capabilities. The page is a simple extension of Homework 1, showcasing some interesting GIFs and providing a link back to the main e-portfolio page.
+- **Bit Manipulation:** The binary string undergoes a custom bit manipulation based on a predefined bit map, scrambling the bit positions for additional encoding security.
 
-### Key Features:
-- **GIF Embedding:** Two interesting GIFs are embedded directly into the page using standard HTML.
-- **Consistent Design:** The design and layout are consistent with Homework 1, maintaining the e-portfolio's overall theme.
-- **Link to Main Page:** A link is provided to navigate back to the Homework 1 page.
+- **Decoding:** The process is reversed by first decoding the binary string back to text after reversing the bit manipulation, and then using the reverse scramble map to return the original text.
 
-### How to Access:
-- Open the `hw2.html` file in your browser to view the GIFs and related content.
-- Use the navigation link to return to the main e-portfolio page.
+### Usage
 
-## Notes
+#### Encoder
+1. Enter the text you want to encode in the **Input Text** field.
+2. Click the **Encode** button.
+3. The app will display:
+   - **Scrambled Text:** The text after the scramble map is applied.
+   - **Encoded Value:** A decimal representation of the scrambled binary.
 
-- **Validation:** All HTML and CSS code has been validated using the W3C Validator to ensure compliance with web standards.
-- **JavaScript:** Basic JavaScript is used for input validation in the contact form (Homework 1). More advanced JavaScript features will be explored in future assignments.
-- **Browser Compatibility:** The assignments are tested to work across major browsers (Chrome, Firefox, Safari).
+#### Decoder
+1. Enter the encoded decimal value in the **Input Decimal** field.
+2. Click the **Decode** button.
+3. The app will display:
+   - **Decoded Text:** The original text decoded from the input decimal.
 
-## Contact Information
+#### Clear Fields
+- Click the **Clear** buttons to reset the input and output fields.
 
-For any questions or issues related to the assignments, please feel free to reach out via the contact form on the Homework 1 page.
+### Technologies
+- **HTML5:** Structure and layout.
+- **CSS3:** Styling and layout adjustments.
+- **JavaScript (Vanilla):** Core functionality for encoding, decoding, and bit manipulation.
+- **Bootstrap (Optional):** For quick styling and layout (if added).
 
----
+### Contributing
+Contributions are welcome! Feel free to submit issues, fork the repository, and create pull requests. Please make sure to update tests as appropriate.
 
-© 2024 CNIT 133. All rights reserved.
+### License
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
