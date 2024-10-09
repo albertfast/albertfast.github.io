@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bit Manipulation Encoder/Decoder">
-    <meta name="author" content="ahmet_sahiner_Part2">
-    <title>Bit Manipulation Encoder/Decoder</title>
-    <link rel="stylesheet" href="bitCool.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Bit Manipulation Encoder/Decoder</h1>
-
-        <!-- Input Section for Text -->
-        <div class="input-section">
+   <head>
+      <title>Bit Manipulation Encoder/Decoder</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Bit Manipulation Encoder/Decoder">
+      <meta name="author" content="ahmetSahiner">
+      <meta name="keywords" content="Data manipulation, String to binary, Converter, binary to string, bitmap">
+      <link rel="stylesheet" href="bitCool.css">
+   </head>
+   <body>
+      <div class="container">
+         <h1>Bit Manipulation Encoder/Decoder</h1>
+         <!-- Input Section for Text -->
+         <div class="input-section">
             <label for="inputText">Input Text:</label>
             <input type="text" id="inputText" placeholder="Enter text to encode...">
             <div class="button-section">
-                <button id="encodeBtn">Encode</button>
-                <button id="clearTextBtn">Clear</button>
+               <button id="encodeBtn">Encode</button>
+               <button id="scrambleBtn">Scramble Text</button>
+               <button id="clearTextBtn">Clear</button>
             </div>
-        </div>
-
-        <!-- Input Section for Decimal -->
-        <div class="input-section">
+         </div>
+         <!-- Input Section for Decimal -->
+         <div class="input-section">
             <label for="inputDecimal">Input Decimal:</label>
             <textarea id="inputDecimal" placeholder="Enter Integer Encoded Value (Decimal) to decode..."></textarea>
             <div class="button-section">
-                <button id="decodeBtn">Decode</button>
-                <button id="clearDecimalBtn">Clear</button>
+               <button id="decodeBtn">Decode</button>
+               <button id="clearDecimalBtn">Clear</button>
             </div>
-        </div>
-
-        <!-- Output Section -->
-        <div class="output-section">
+         </div>
+         <!-- Output Section -->
+         <div class="output-section">
             <h2>Results</h2>
-            <p><strong>Input Text:</strong> <span id="inputTextResult"></span></p>
-            <p><strong>Encoded Value (Decimal):</strong> <span id="encodedValue"></span></p>
-            <p><strong>Decoded Text:</strong> <span id="decodedText"></span></p>
-        </div>
-    </div>
-
-    <script src="./{ahmet}_{sahiner}_Part2.js"></script>
-</body>
+            <p><strong>Input Text:</strong> <span id="inputTextResult" style="color: #ff0000; font-weight: bold;"></span></p>
+            <p><strong>Scrambled Text:</strong> <span id="scrambledText" style="color: #169df7; font-weight: bold;"></span>
+               <button id="descrambleBtn">Descramble Text</button>
+            </p>
+            <p><strong>Descrambled Text:</strong> <span id="descrambledText" style="color: #169df7; font-weight: bold;"></span></p>
+            <p><strong>Encoded Value (Decimal):</strong> <span id="encodedValue" style="color: #ff0000; font-weight: bold;"></span></p>
+            <p><strong>Decoded Text:</strong> <span id="decodedText" style="color: #1eff00; font-weight: bold;"></span></p>
+         </div>
+      </div>
+      <script src="bitCool.js"></script>
+   </body>
 </html>
