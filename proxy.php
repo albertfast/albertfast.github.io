@@ -21,17 +21,17 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
 // Execute request
 $response = curl_exec($ch);
-curl_close($ch);
 
-// Set content type to JSON and output the response
-header('Content-Type: application/json');
-echo $response;
-
-// Check if the response is valid
+// Check if the cURL request was successful
 if ($response === false) {
+    // cURL error handling
     echo "cURL Error: " . curl_error($ch);
 } else {
-    // Output the raw response for debugging
+    // Set content type to JSON and output the response
+    header('Content-Type: application/json');
     echo $response;
 }
-?> 
+
+// Close cURL session
+curl_close($ch);
+?>
