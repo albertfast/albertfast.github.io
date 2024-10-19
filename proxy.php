@@ -11,7 +11,12 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 
+// Allow cross-origin requests from any domain
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
 // Set content type to JSON and output the response
-header('Content-Type: application/json', Access-Control-Allow-Origin);
+header('Content-Type: application/json');
 echo $response;
 ?>
