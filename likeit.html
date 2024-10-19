@@ -71,15 +71,13 @@
             { name: 'model_name', description: data.model_name },
             { name: 'is_mobile', description: data.is_mobile ? 'Yes' : 'No' }
         ];
-        
+
         capabilities.forEach(cap => {
             const row = `<tr><td>${cap.name}</td><td>${cap.description}</td></tr>`;
             tableBody.innerHTML += row;
         });
     })
     .catch(error => console.log('API error: ', error));
-
-
 </script>
 
 </body>
