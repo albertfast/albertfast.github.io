@@ -12,6 +12,6 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 // Set content type to JSON and output the response
-header('Content-Type: application/json');
+header('Content-Type: application/json', Access-Control-Allow-Origin);
 echo $response;
 ?>
