@@ -1,4 +1,15 @@
 <?php
+// Allow cross-origin requests from any domain
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// Handle OPTIONS request (CORS preflight)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200); // Preflight request successful
+    exit();
+}
+
 // WURFL API URL
 $url = "https://wurfl.io/api/v1/json/device";
 
@@ -8,15 +19,9 @@ curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-
 // Execute request
 $response = curl_exec($ch);
 curl_close($ch);
-
-// Allow cross-origin requests from any domain
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
 
 // Set content type to JSON and output the response
 header('Content-Type: application/json');
@@ -26,8 +31,7 @@ echo $response;
 if ($response === false) {
     echo "cURL Error: " . curl_error($ch);
 } else {
-    // Output the raw response for debugginga
+    // Output the raw response for debugging
     echo $response;
 }
-
-?>
+?> 
