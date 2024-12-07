@@ -13,8 +13,14 @@
             "sizes": "16x16"
         },
         {
-            "src": "high_quality_image_34_144.ico",
-            "type": "image/x-icon",
+            "src": "high_quality_image_34_144.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "high_quality_image_34_144.webp",
+            "type": "image/webp",
             "sizes": "144x144",
             "purpose": "any"
         },
