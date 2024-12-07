@@ -7,6 +7,7 @@ const assetsToCache = [
     'lightblue.jpg', // Background image: light blue
     'lightgold.jpg', // Background image: light gold
     'favicon.ico', // Favicon
+    'favicon1.ico', // Favicon
     'high_quality_image_34_144.png', // image/png
     'high_quality_image_34.png', // image/png
     'high_quality_image_34_512.png', // image/png
