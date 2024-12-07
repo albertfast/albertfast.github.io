@@ -43,7 +43,7 @@
             "form_factor": "narrow"
         }
     ],
-    "start_url": "hw4.html",
+    "start_url": "/pwademo/hw4.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#007bff"
