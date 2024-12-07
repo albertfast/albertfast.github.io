@@ -5,6 +5,11 @@
         {
             "src": "favicon.ico",
             "type": "image/x-icon",
+            "sizes": "2x2"
+        },
+        {
+            "src": "favicon1.ico",
+            "type": "image/x-icon",
             "sizes": "16x16"
         },
         {
