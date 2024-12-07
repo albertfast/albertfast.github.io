@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Web App (PWA) Demo</title>
+    <link rel="stylesheet" href="hw4.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico" sizes="192x192" type="image/x-icon">
+    <link rel="icon" href="high_quality_image_34_144.png" sizes="144x144" type="image/png">
+    <link rel="icon" href="high_quality_image_34.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="high_quality_image_34_512.png" sizes="512x512" type="image/png">
+    <link rel="icon" href="screenshot-desktop.png" sizes="1280x720" type="image/png">
+    <link rel="icon" href="screenshot-mobile.png" sizes="720x1280" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the PWA Demo</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What is a Progressive Web App?</h2>
+            <p>
+                A Progressive Web App (PWA) is a type of application software delivered through the web, 
+                built using standard web technologies like HTML, CSS, and JavaScript. PWAs are designed to work 
+                on any platform that uses a standards-compliant browser, including both desktop and mobile devices.
+            </p>
+            <p>
+                PWAs provide an app-like experience, combining the best features of mobile applications 
+                (such as offline functionality and push notifications) with the accessibility of web applications.
+            </p>
+        </section>
+
+        <section>
+            <h2>Change Background</h2>
+            <label for="background-select">Choose Background:</label>
+            <select id="background-select">
+                <option value="white">White</option>
+                <option value="lightblue">Light Blue</option>
+                <option value="lightgold">Light Gold</option>
+            </select>
+            <button id="change-background">Change Background</button>
+        </section>
+
+        <section>
+            <h2>Personalized Greeting</h2>
+            <label for="name-input">Enter your name:</label>
+            <input type="text" id="name-input" placeholder="Your Name">
+            <p id="greeting"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PWA Demo. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('service-worker.js')
+                .then(() => console.log('Service Worker registered successfully.'))
+                .catch((error) => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
+
+    <script src="hw4.js"></script>
+</body>
+</html>

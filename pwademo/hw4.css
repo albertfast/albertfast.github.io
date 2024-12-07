@@ -1,0 +1,15 @@
+body, h1, h2, p, label { margin: 0; padding: 0; font-family: Arial, sans-serif; color: #333; }
+body { margin: 0; padding: 20px; background-color: white; }
+header { text-align: center; padding: 20px; background-color: #007bff; color: white; }
+main { max-width: 800px; margin: 0 auto; padding: 20px; }
+section { margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; }
+button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+button:hover { background-color: #0056b3; }
+input, select { padding: 10px; margin-top: 5px; font-size: 16px; width: 100%; box-sizing: border-box; margin-bottom: 10px; }
+footer { text-align: center; padding: 10px; background-color: #007bff; color: white; margin-top: 20px; }
+body.lightblue { background-image: url('lightblue.jpg'); background-size: cover; background-repeat: no-repeat; }
+body.lightgold { background-image: url('lightgold.jpg'); background-size: cover; background-repeat: no-repeat; }
+@media (max-width: 1024px) { header h1 { font-size: 32px; } main { padding: 18px; } section { padding: 12px; } button { font-size: 15px; } }
+@media (max-width: 768px) { header h1 { font-size: 28px; } main { padding: 15px; } section { padding: 10px; } button { font-size: 14px; padding: 10px; } }
+@media (max-width: 600px) { header h1 { font-size: 24px; } main { padding: 15px; } section { padding: 10px; } button { font-size: 14px; padding: 8px; } }
+@media (max-width: 480px) { header h1 { font-size: 24px; } main { padding: 10px; } section { padding: 8px; } button { font-size: 12px; padding: 8px; } }
