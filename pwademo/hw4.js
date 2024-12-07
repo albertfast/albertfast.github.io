@@ -89,12 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Debugging visibility of the install button
-  document.addEventListener('DOMContentLoaded', function() {
     const installButton = document.getElementById('install-button');
     if (installButton) {
         console.log('Install button detected in the DOM. Initial state:', installButton.style.display);
     } else {
         console.error('Install button not present in the DOM.');
     }
-  });
 });
