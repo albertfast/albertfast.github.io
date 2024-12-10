@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Homework 8 - AJAX Application</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Ahmet Sahiner">
+      <meta name="description" content="Explore an interactive AJAX application that fetches and displays data dynamically using XMLHttpRequest and OpenWeatherMap REST API for real-time weather updates.">
+      <meta name="keywords" content="AJAX, XML, REST API, OpenWeatherMap, Weather App, JavaScript, XMLHttpRequest, Dynamic Data, Real-Time Weather, Homework 8">
+      <meta name="robots" content="index, follow">
+      <meta name="theme-color" content="#ffffff">
+      <link rel="icon" href="openweather.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="openweather.ico" type="image/x-icon">
+      <style>
+         * { margin: 0; padding: 0; border: 0; box-sizing: border-box; }
+         body { font-family: Arial, sans-serif; color: #333; }
+         div#header, .content, footer { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: rgba(241, 243, 226, 0.7); border-radius: 10px; }
+         div#header { color: #ffffff; min-height: 150px; }
+         div#header h1 { color: rgb(159, 16, 172); text-align: center; margin-bottom: 10px; }
+         div#header a { color: #000; font-weight: bold; }
+         figure.background-figure { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; margin: 0; }
+         figure.background-figure img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
+         .content { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: rgba(241, 243, 226, 0.7); border-radius: 10px; overflow: hidden; }
+         .left-column, .right-column { width: 48%; vertical-align: top; display: inline-block; }
+         .left-column { float: left; text-align: center; }
+         .right-column { float: right; text-align: center; line-height: 1.6; }
+         .left-column h2, .right-column h2, .right-column h1 { margin: 20px 0 10px; color: #000; }
+         .left-column p, .right-column p { color: #000; line-height: 1.4; text-align: left; }
+         .left-column p { margin-bottom: 10px; }
+         button { background-color: #4CAF50; color: white;margin: 10px; padding: 10px 20px; border-radius: 5px; cursor: pointer; border: none; font-size: 14px; }
+         button:hover { background-color: #45a049; }
+         #demo { border-collapse: collapse; width: 100%;  max-height: 400px; table-layout: auto; overflow-y: auto; }
+         #demo th, #demo td { border: 1px solid #080505; padding: 10px; font-weight: bolder; color: #000000; text-align: center; font-size: 1em; }
+         #demo th { background-color: rgba(13, 6, 210, 0.7); color: #a9a9a5; }
+         #demo tr:nth-child(even) { background-color: rgba(149, 20, 163, 0.7); }
+         #demo tr:nth-child(odd) { background-color: rgba(22, 126, 205, 0.7); }
+         @media (max-width: 900px) { .left-column, .right-column { float: none; display: block; width: 100%; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.9em; padding: 8px; } input, button { width: 95%; margin: 5px auto; display: block; } }
+         @media (max-width: 600px) { body { font-size: 0.9em; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.8em; padding: 5px; } #demo th:nth-child(4), #demo td:nth-child(4), #demo th:nth-child(6), #demo td:nth-child(6) { display: none; }  footer { text-align: center; color: #f0f0f0; background-color: #333; border: 5px solid #4092b5; font-size: large; }
+         footer a { color: #87ceeb; text-decoration: none; font-weight: bold; }
+         footer a:hover { color: #ffdf00; text-decoration: underline; } input, button { width: 90%; margin: 5px auto; } }
+         @media (max-width: 480px) { body { font-size: 0.8em; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.7em; padding: 3px; } input, button { width: 85%; margin: 5px auto; } footer { font-size: small; padding: 10px; } }
+      </style>
+   </head>
+   <body>
+      <!-- Background Image -->
+      <figure class="background-figure">
+         <img src="pabloramon.jpg" alt="A couple gazing out of a train window, reflecting a moment of travel and introspection">
+      </figure>
+      <div id="header">
+         <h1>Homework 8 - AJAX Application</h1>
+         <a href="https://hills.ccsf.edu/~asahiner/hw1.html">Home</a>
+      </div>
+      <main>
+         <div class="content">
+            <div class="left-column">
+               <button type="button" onclick="loadDoc()">Get CD collection</button>
+               <table id="demo"></table>
+               <h2>Explanation of AJAX</h2>
+               <p>AJAX (Asynchronous JavaScript and XML) is a technique used to send and receive data from a server asynchronously without refreshing the entire page. In this application, the loadDoc function makes an asynchronous request to fetch the cd_catalog.xml file using the XMLHttpRequest object. The onload event is triggered when the request is successful, and the response is processed by the myFunction function. This function parses the XML data and dynamically updates the HTML table to display the CD collection.</p>
+            </div>
+            <div class="right-column">
+               <h1>Check the Weather</h1>
+               <p>Enter a city below and click "Get Weather" to see the current weather conditions.</p>
+               <label for="cityInput">City:</label>
+               <input type="text" id="cityInput" placeholder="e.g. London">
+               <button type="button" onclick="getWeather()">Get Weather</button>
+               <div id="result"></div>
+               <h2>REST API</h2>
+               <p>The <strong>OpenWeatherMap REST API</strong> enhances our web application's user experience with real-time weather data. The API provides responses in <strong>JSON format</strong>, making it easy to parse and integrate into our frontend. Access requires an <strong>API key</strong>, which can be obtained for free during account registration.</p>
+               <h3>Key Features</h3>
+               <p><strong>Scalable Pricing:</strong> The free tier covers basic use, while paid plans support advanced queries and higher limits, allowing flexibility as our user base grows.</p>
+               <p><strong>Weather Icons:</strong> The API includes icon codes (e.g., <code>01d</code>) that can be mapped to URLs to display relevant weather visuals, ensuring a polished and user-friendly interface.</p>
+               <p><strong>Comprehensive Documentation:</strong> The <a href="https://openweathermap.org/api" target="_blank" rel="noopener">OpenWeatherMap Developer Documentation</a> provides clear guidance on endpoints, parameters, and implementation.</p>
+               <p>In summary, OpenWeatherMap offers reliable, scalable, and developer-friendly weather data, empowering <strong>Why Not Innovations</strong> to deliver a dynamic and engaging application.</p>
+            </div>
+         </div>
+         <footer>
+            &copy; Ahmet Sahiner || <a href="mailto:asahiner@mail.ccsf.edu">asahiner@mail.ccsf.edu</a> ||
+            <a href="https://hills.ccsf.edu/~asahiner/hw1.html">Back to Homework 1</a>
+         </footer>
+      </main>
+      <script>
+         function loadDoc() {
+             const xhttp = new XMLHttpRequest();
+             xhttp.onload = function() {
+                 myFunction(this);
+             }
+             xhttp.open("GET", "cd_catalog.xml");
+             xhttp.send();
+         }
+         
+         function myFunction(xml) {
+             const xmlDoc = xml.responseXML;
+             const x = xmlDoc.getElementsByTagName("CD");
+             let table="<tr><th>Artist</th><th>Title</th><th>COUNTRY</th><th>COMPANY</th><th>PRICE</th><th>YEAR</th></tr>";
+             for (let i = 0; i < x.length; i++) { 
+                 table += "<tr><td>" +
+                 x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                 "</td><td>" +
+                 x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                 "</td><td>" +
+                 x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue +
+                 "</td><td>" +
+                 x[i].getElementsByTagName("COMPANY")[0].childNodes[0].nodeValue +
+                 "</td><td>" +
+                 x[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue +
+                 "</td><td>" +
+                 x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
+                 "</td></tr>";
+             }
+             document.getElementById("demo").innerHTML = table;
+         }
+         
+         async function getWeather() {
+             const city = document.getElementById('cityInput').value.trim(); // Get the city input value and remove extra spaces
+             const resultDiv = document.getElementById('result'); // The div where the weather results will be displayed
+         
+             // Check if the city name is empty
+             if (!city) {
+                 resultDiv.innerHTML = '<p>Please enter a city name.</p>'; // Display a message if no city is entered
+                 return;
+             }
+         
+             const apiKey = '469d8eb56ad0031a1cfc8ea9f28c0b37'; // My API key for OpenWeatherMap
+             const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(city) + "&appid=" + apiKey + "&units=imperial"; 
+             // API URL, using Fahrenheit as the unit (imperial system)
+         
+             try {
+                 const response = await fetch(apiUrl); // Fetch the weather data from the API
+         
+                 // Handle error responses from the API
+                 if (!response.ok) {
+                     if (response.status === 404) {
+                         resultDiv.innerHTML = '<p>City "' + city + '" not found. Please try another city.</p>'; // Show a message if the city is not found
+                     } else {
+                         resultDiv.innerHTML = '<p>Error: ' + response.statusText + '</p>'; // Show a generic error message for other status codes
+                     }
+                     return;
+                 }
+         
+                 const data = await response.json(); // Parse the API response as JSON
+                 const temp = data.main.temp; // Extract the temperature
+                 let description = data.weather[0].description; // Extract the weather description
+                 const iconCode = data.weather[0].icon; // Extract the icon code for the weather condition
+                 const iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"; 
+                 // Construct the URL for the weather icon
+         
+                 // Format the city name to have the first letter capitalized
+                 const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+         
+                 // Format the description so each word's first letter is capitalized
+                 description = description.split(' ').map(function(word) {
+                     return word.charAt(0).toUpperCase() + word.slice(1);
+                 }).join(' ');
+         
+                 // Display the weather information in a styled box
+                 resultDiv.innerHTML = 
+                     '<div style="background-color: rgba(255, 255, 255, 0.8); padding: 15px; border-radius: 10px; max-width: 300px; margin: 20px auto; text-align: center;">' +
+                         '<h2 style="display: inline-block; margin-right: 10px;">Weather in ' + cityName + '</h2>' +
+                         '<img src="' + iconUrl + '" alt="' + description + '" style="vertical-align: middle;">' +
+                         '<p style="margin: 10px 0; font-size: 18px;"><strong>Temperature:</strong> ' + temp + ' °F</p>' +
+                         '<p style="margin: 10px 0; font-size: 16px;"><strong>Description:</strong> ' + description + '</p>' +
+                     '</div>';
+         
+             } catch (error) {
+                 console.error('Error calling the weather API:', error); // Log the error for debugging
+                 resultDiv.innerHTML = '<p>There was an error retrieving the weather data.</p>'; // Display an error message in the UI
+             }
+         }       
+      </script>
+   </body>
+</html>
