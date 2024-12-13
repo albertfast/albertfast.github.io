@@ -17,7 +17,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
     deferredPrompt = event; // Save the event for later use
     console.log('Deferred prompt saved.');
 
-    // Display the install button
+    // Check if install-button exists in the DOM
     const installButton = document.getElementById('install-button');
     if (installButton) {
         installButton.style.display = 'block';
@@ -38,17 +38,5 @@ window.addEventListener('beforeinstallprompt', (event) => {
                 console.error('Error during the install prompt:', error);
             });
         });
-    } else {
-        console.error('Install button not found in the DOM.');
-    }
-});
-
-// Debugging visibility of the install button
-document.addEventListener('DOMContentLoaded', () => {
-    const installButton = document.getElementById('install-button');
-    if (installButton) {
-        console.log('Install button detected in the DOM. Initial state:', installButton.style.display);
-    } else {
-        console.error('Install button not present in the DOM.');
     }
 });
