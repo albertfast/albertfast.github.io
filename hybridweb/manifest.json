@@ -1,0 +1,57 @@
+{
+    "short_name": "",
+    "name": "Ajax Assignment Web App",
+    "icons": [
+        {
+            "src": "greenbird2.ico",
+            "type": "image/x-icon",
+            "sizes": "2x2"
+        },
+        {
+            "src": "greenbird.ico",
+            "type": "image/x-icon",
+            "sizes": "16x16"
+        },
+        {
+            "src": "greenbird144.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "greenbird144.webp",
+            "type": "image/webp",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "greenbird192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "greenbird512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "greenbird1280.png",
+            "type": "image/png",
+            "sizes": "1280x720",
+            "form_factor": "wide"
+        },
+        {
+            "src": "greenbird720.png",
+            "type": "image/png",
+            "sizes": "720x1280",
+            "form_factor": "narrow"
+        }
+    ],
+    "start_url": "/hybridweb/hybrid.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007bff"
+}
