@@ -159,7 +159,10 @@
                <button type="button" onclick="loadDoc()">Get CD collection</button>
                <table id="demo"></table>
                <h2>Explanation of AJAX</h2>
-               <p>AJAX (Asynchronous JavaScript and XML) is a technique used to send and receive data from a server asynchronously without refreshing the entire page. In this application, the loadDoc function makes an asynchronous request to fetch the cd_catalog.xml file using the XMLHttpRequest object. The onload event is triggered when the request is successful, and the response is processed by the myFunction function. This function parses the XML data and dynamically updates the HTML table to display the CD collection.</p>
+               <p>AJAX (Asynchronous JavaScript and XML) is a technique used to send and receive data from a server asynchronously without refreshing the entire page. In this application, the <strong>loadDoc</strong> function initiates an asynchronous request to fetch the <code>cd_catalog.xml</code> file using the <code>XMLHttpRequest</code> object.</p>
+               <p>The <code>open</code> method of the <code>XMLHttpRequest</code> object is used to configure the request, specifying the HTTP method (GET) and the file to be fetched (<code>cd_catalog.xml</code>). The <code>onload</code> event handler is triggered once the request is successfully completed, at which point the response is passed to the <strong>myFunction</strong> function for further processing.</p>
+               <p>The <strong>myFunction</strong> function parses the XML response using the <code>responseXML</code> property of the <code>XMLHttpRequest</code> object. It extracts specific elements such as <code>ARTIST</code>, <code>TITLE</code>, and <code>YEAR</code> from the XML structure and dynamically updates the HTML table to display the CD collection.</p>
+               <p>By leveraging AJAX, this application ensures seamless data updates without requiring a full page reload, enhancing user experience and performance.</p>
             </div>
             <div class="right-column">
                <h1>Check the Weather</h1>
