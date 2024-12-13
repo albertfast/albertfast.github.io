@@ -1,0 +1,57 @@
+{
+    "short_name": "Ajax Assiignment",
+    "name": "Ajax Assiignment Web App",
+    "icons": [
+        {
+            "src": "openweather2.ico",
+            "type": "image/x-icon",
+            "sizes": "2x2"
+        },
+        {
+            "src": "openweather.ico",
+            "type": "image/x-icon",
+            "sizes": "16x16"
+        },
+        {
+            "src": "pabloramon144.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "pabloramon144.webp",
+            "type": "image/webp",
+            "sizes": "144x144",
+            "purpose": "any"
+        },
+        {
+            "src": "pabloramon192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "pabloramon512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "pabloramon1280.png",
+            "type": "image/png",
+            "sizes": "1280x720",
+            "form_factor": "wide"
+        },
+        {
+            "src": "pabloramon720.png",
+            "type": "image/png",
+            "sizes": "720x1280",
+            "form_factor": "narrow"
+        }
+    ],
+    "start_url": "/Ajax/ajaxassignment.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007bff"
+}
