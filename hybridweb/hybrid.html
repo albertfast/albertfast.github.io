@@ -1,353 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Hybrid Development Comparison: PhoneGap, Flutter, React Native</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Comprehensive comparison of PhoneGap, Flutter, and React Native technologies for hybrid application development, focusing on performance, usability, and scalability.">
-        <meta name="keywords" content="PhoneGap, Flutter, React Native, Hybrid Applications, Mobile Development, Cross-Platform Development, Technology Comparison, Mobile Web Development, Performance Analysis">
-        <meta name="author" content="Ahmet Sahiner">
-        <meta name="robots" content="index, follow">
-        <meta name="language" content="en">
-        <meta name="subject" content="Hybrid Mobile Development Comparison">
-        <meta name="rating" content="General">
-        <meta name="revised" content="2024-11-17">
-        <meta property="og:title" content="Comparison of Hybrid Development Technologies: PhoneGap, Flutter, and React Native">
-        <meta property="og:description" content="A detailed report comparing PhoneGap, Flutter, and React Native, designed to assist managers in making informed decisions about hybrid application development.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://yourwebsite.com/hybrid-comparison">
-        <meta property="og:image" content="https://yourwebsite.com/assets/hybrid-comparison-thumbnail.jpg">
-        <link rel="shortcut icon" href="openweather.ico" type="image/x-icon">
-        <link rel="manifest" href="manifest.json">
-        <link rel="icon" href="greenbird2.ico"  type="image/x-icon">
-        <link rel="icon" href="greenbird.ico"  type="image/x-icon">
-        <link rel="icon" href="greenbird144.png" sizes="144x144" type="image/png">
-        <link rel="icon" href="greenbird144.webp" sizes="144x144" type="image/webp">
-        <link rel="icon" href="greenbird192.png" sizes="192x192" type="image/png">
-        <link rel="icon" href="greenbird512.png" sizes="512x512" type="image/png">
-        <link rel="icon" href="greenbird1280.png" sizes="1280x720" type="image/png">
-    <style>
-        * {
-            margin: 0; padding: 0; box-sizing: border-box;
-          }
-          
-          body {
-            font-family: Arial, sans-serif; color: #333; background-color: #f4f4f9; display: flex; flex-direction: column; min-height: 100vh;
-          }
-          
-          figure.background-figure {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; margin: 0;
-          }
-          
-          figure.background-figure img {
-            width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5);
-          }
-          
-          #header {
-            text-align: center; padding: clamp(10px, 5%, 20px); background-color: rgba(0, 123, 255, 0.9); color: white; margin-bottom: clamp(10px, 5%, 20px); border-radius: 10px; width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto;
-          }
-          
-          #header h1 {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-          }
-          
-          main {
-            flex: 1; width: 90%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(10px, 5%, 20px); padding: clamp(10px, 5%, 20px); background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          }
-          
-          section {
-            margin-bottom: clamp(10px, 5%, 20px);
-          }
-          
-          section h2 {
-            text-align: center; font-size: clamp(1.2rem, 2.5vw, 2rem); margin-bottom: 10px;
-          }
-          
-          section p {
-            text-align: center; font-size: clamp(0.9rem, 2.5vw, 1rem); color: #555;
-          }
-          
-          table {
-            width: 100%; border-collapse: collapse; margin-top: 10px; background-color: #fff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          }
-          
-          thead {
-            background-color: #007bff; color: white;
-          }
-          
-          th, td {
-            padding: clamp(5px, 2.5%, 10px); text-align: left; border-bottom: 1px solid #ddd;
-          }
-          
-          @media (max-width: 768px) {
-            table, thead, tbody, th, td, tr {
-              display: block;
-            }
-          
-            thead tr {
-              position: absolute; top: -9999px; left: -9999px;
-            }
-          
-            tr {
-              border: 1px solid #ccc; margin-bottom: 10px;
-            }
-          
-            td {
-              border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%;
-            }
-          
-            td::before {
-              position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; content: attr(data-label);
-            }
-          
-            td:nth-of-type(1)::before {
-              content: 'Criteria';
-            }
-          
-            td:nth-of-type(2)::before {
-              content: 'PhoneGap / Cordova';
-            }
-          
-            td:nth-of-type(3)::before {
-              content: 'Flutter';
-            }
-          
-            td:nth-of-type(4)::before {
-              content: 'React Native';
-            }
-          }
-          
-          footer {
-            text-align: center; padding: clamp(10px, 5%, 20px); background-color: rgba(0, 123, 255, 0.9); color: white; margin-top: clamp(10px, 5%, 20px); border-radius: 10px; width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto;
-          }
-          
-          footer a {
-            color: #ffdf00; text-decoration: none; font-weight: bold;
-          }
-          
-          footer a:hover {
-            text-decoration: underline;
-          }
-          
-          section#references ul {
-            list-style-type: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(10px, 5%, 20px);
-          }
-          
-          section#references li {
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-          }
-          
-          section#references a {
-            color: #007bff; text-decoration: none;
-          }
-          
-          section#references a:hover {
-            text-decoration: underline; color: #ff0000;
-          }
-          
-          @media (max-width: 768px) {
-            #header h1 {
-              font-size: clamp(1.2rem, 4vw, 2rem);
-            }
-          
-            section h2 {
-              font-size: clamp(1rem, 3vw, 1.5rem);
-            }
-          
-            table {
-              font-size: clamp(0.8rem, 3vw, 1rem);
-            }
-          }
-          
-          @media (max-width: 480px) {
-            #header h1 {
-              font-size: clamp(1rem, 5vw, 1.5rem);
-            }
-          
-            section h2 {
-              font-size: clamp(0.9rem, 4vw, 1.2rem);
-            }
-          
-            table {
-              font-size: clamp(0.7rem, 4vw, 0.9rem);
-            }
-          }      
-    </style>            
-    </head>
-<body>
-    <!-- Accessible Background Image using <figure> and <img> -->
-    <figure class="background-figure">
-        <img src="greenbird.jpg" alt="Green Bird">
-    </figure>
-    <!-- Header Section -->
-    <div id="header">
-        <h1>Comparison of Hybrid App Solutions</h1>
-    </div>
-
-    <!-- Main Content Section -->
-    <main>
-        <div class="content">
-        <!-- Introduction Section -->
-        <section id="introduction">
-            <h2>Introduction</h2>
-            <p>
-                This page compares three popular hybrid app development solutions: PhoneGap/Cordova, Flutter, and React Native.
-                The comparison is aimed at helping managers choose the most suitable technology for their projects.
-            </p>
-        </section>
-
-        <!-- Comparison Table Section -->
-        <section id="comparison">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4"> <h2>Comparison Table</h2> </thcolspan></th>
-                    </tr>
-                    <tr>
+   <head>
+      <title>Hybrid Development Comparison: PhoneGap, Flutter, React Native</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Comprehensive comparison of PhoneGap, Flutter, and React Native technologies for hybrid application development, focusing on performance, usability, and scalability.">
+      <meta name="keywords" content="PhoneGap, Flutter, React Native, Hybrid Applications, Mobile Development, Cross-Platform Development, Technology Comparison, Mobile Web Development, Performance Analysis">
+      <meta name="author" content="Ahmet Sahiner">
+      <meta name="robots" content="index, follow">
+      <meta name="language" content="en">
+      <meta name="subject" content="Hybrid Mobile Development Comparison">
+      <meta name="rating" content="General">
+      <meta name="revised" content="2024-11-17">
+      <meta property="og:title" content="Comparison of Hybrid Development Technologies: PhoneGap, Flutter, and React Native">
+      <meta property="og:description" content="A detailed report comparing PhoneGap, Flutter, and React Native, designed to assist managers in making informed decisions about hybrid application development.">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://albertfast.github.io/hybridweb/hybrid.html">
+      <link rel="shortcut icon" href="greenbird.ico" type="image/x-icon">
+      <link rel="manifest" href="manifest.json">
+      <link rel="icon" href="greenbird2.ico"  type="image/x-icon">
+      <link rel="icon" href="greenbird.ico"  type="image/x-icon">
+      <link rel="icon" href="greenbird144.png" sizes="144x144" type="image/png">
+      <link rel="icon" href="greenbird144.webp" sizes="144x144" type="image/webp">
+      <link rel="icon" href="greenbird192.png" sizes="192x192" type="image/png">
+      <link rel="icon" href="greenbird512.png" sizes="512x512" type="image/png">
+      <link rel="icon" href="greenbird1280.png" sizes="1280x720" type="image/png">
+      <style>
+         * {
+         margin: 0; padding: 0; box-sizing: border-box;
+         }
+         body {
+         font-family: Arial, sans-serif; color: #333; background-color: #f4f4f9; display: flex; flex-direction: column; min-height: 100vh; border-radius: 20px;
+         }
+         figure.background-figure {
+         position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; margin: 0;
+         }
+         figure.background-figure img {
+         width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5);
+         }
+         #header {
+         text-align: center; padding: clamp(10px, 5%, 20px); background-color: rgba(0, 123, 255, 0.9); color: white; margin-bottom: clamp(10px, 5%, 20px); margin-top: 10px; border-radius: 10px; width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto;
+         }
+         #header h1 {
+         font-size: clamp(1.5rem, 3vw, 2.5rem);
+         }
+         main {
+         flex: 1; width: 90%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(10px, 5%, 20px); padding: clamp(10px, 5%, 20px); background-color: rgba(255, 255, 255, 0.8); border-radius: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         }
+         section {
+         margin-bottom: clamp(10px, 5%, 20px);
+         }
+         section h2 {
+         text-align: center; font-size: clamp(1.2rem, 2.5vw, 2rem); margin-bottom: 10px;
+         }
+         section p {
+         text-align: center; font-size: clamp(0.9rem, 2.5vw, 1rem); color: #555;
+         }
+         table {
+         width: 100%; border-collapse: collapse;  margin-top: 10px; background-color: rgba(68, 21, 222, 0.2); box-shadow: 0 4px 6px rgba(92, 91, 91, 0.793); 
+         box-shadow: 0 4px 6px rgba(92, 91, 91, 0.793); border-radius: 20px;  overflow: hidden;
+         }
+         thead {
+         background-color: rgba(6, 197, 31, 0.2); color: rgb(27, 9, 191); border-radius: 20px 20px 0 0; 
+         }
+         th, td {
+         padding: clamp(5px, 2.5%, 10px); text-align: left; border-bottom: 1px solid #007bff; 
+         border-right: 1px solid #007bff; border-left: 1px solid #007bff; 
+         }
+         th { text-align: center; font-weight:bold }
+         td:nth-child(1) { background-color: rgb(255, 255, 33, 0.7); color: #000; font-weight: bold; }
+         td:nth-child(2) { background-color: rgba(43, 215, 181, 0.1); color: #000; font-weight: bold; }
+         td:nth-child(3) { background-color: rgb(57, 155, 225, 0.4); color: #000; font-weight: bold; }
+         td:nth-child(4) { background-color: rgba(88, 96, 244, 0.2); color: #000; font-weight: bold; }
+         tbody tr:last-child td:first-child {
+         border-radius: 0 0 0 20px; 
+         }
+         tbody tr:last-child td:last-child {
+         border-radius: 0 0 20px 0; 
+         }
+         @media (max-width: 768px) {
+         table, thead, tbody, th, td, tr {
+         display: block;
+         }
+         thead tr {
+         position: absolute; top: -9999px; left: -9999px;
+         }
+         tr {
+         border: 1px solid #ccc; margin-bottom: 10px;
+         }
+         td {
+         border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%;
+         }
+         td::before {
+         position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; content: attr(data-label);
+         }
+         td:nth-of-type(1)::before {
+         content: 'Criteria';
+         }
+         td:nth-of-type(2)::before {
+         content: 'PhoneGap / Cordova';
+         }
+         td:nth-of-type(3)::before {
+         content: 'Flutter';
+         }
+         td:nth-of-type(4)::before {
+         content: 'React Native';
+         }
+         }
+         footer {
+         text-align: center; padding: clamp(10px, 5%, 20px); background-color: rgba(0, 123, 255, 0.9); color: white; margin-top: clamp(10px, 5%, 20px); margin-bottom: 10px; border-radius: 10px; width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto;
+         }
+         footer a {
+         color: #ffdf00; text-decoration: none; font-weight: bold;
+         }
+         footer a:hover {
+         text-decoration: underline;
+         }
+         section#references ul {
+         list-style-type: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(10px, 5%, 20px);
+         }
+         section#references li {
+         font-size: clamp(0.9rem, 2.5vw, 1rem);
+         }
+         section#references a {
+         color: #007bff; text-decoration: none;
+         }
+         section#references a:hover {
+         text-decoration: underline; color: #ff0000;
+         }
+         @media (max-width: 768px) {
+         #header h1 {
+         font-size: clamp(1.2rem, 4vw, 2rem);
+         }
+         section h2 {
+         font-size: clamp(1rem, 3vw, 1.5rem);
+         }
+         table {
+         font-size: clamp(0.8rem, 3vw, 1rem);
+         }
+         }
+         @media (max-width: 480px) {
+         #header h1 {
+         font-size: clamp(1rem, 5vw, 1.5rem);
+         }
+         section h2 {
+         font-size: clamp(0.9rem, 4vw, 1.2rem);
+         }
+         table {
+         font-size: clamp(0.7rem, 4vw, 0.9rem);
+         }
+         }      
+      </style>
+   </head>
+   <body>
+      <!-- Accessible Background Image using <figure> and <img> -->
+      <figure class="background-figure">
+         <img src="greenbird.jpg" alt="Green Bird">
+      </figure>
+      <!-- Header Section -->
+      <div id="header">
+         <h1>Comparison of Hybrid App Solutions</h1>
+      </div>
+      <!-- Main Content Section -->
+      <main>
+         <div class="content">
+            <!-- Introduction Section -->
+            <section id="introduction">
+               <h2>Introduction</h2>
+               <p>
+                  This page compares three popular hybrid app development solutions: PhoneGap/Cordova, Flutter, and React Native.
+                  The comparison is aimed at helping managers choose the most suitable technology for their projects.
+               </p>
+            </section>
+            <!-- Comparison Table Section -->
+            <section id="comparison">
+               <h2>Comparison Table</h2>
+               <table>
+                  <thead>
+                     <tr>
                         <th>Criteria</th>
                         <th>PhoneGap / Cordova</th>
                         <th>Flutter</th>
                         <th>React Native</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Development Language -->
-                    <tr>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <!-- Development Language -->
+                     <tr>
                         <td>Development Language</td>
                         <td>HTML, CSS, JavaScript</td>
                         <td>Dart (Google's Programming Language)</td>
                         <td>JavaScript (with JSX)</td>
-                    </tr>
-                    <!-- Performance -->
-                    <tr>
+                     </tr>
+                     <!-- Performance -->
+                     <tr>
                         <td>Performance</td>
                         <td>Moderate (WebView-based rendering)</td>
                         <td>High (Compiled to native code)</td>
                         <td>High (Bridges to native components)</td>
-                    </tr>
-                    <!-- UI Flexibility -->
-                    <tr>
+                     </tr>
+                     <!-- UI Flexibility -->
+                     <tr>
                         <td>User Interface Flexibility</td>
                         <td>Relies on HTML and CSS for UI design</td>
                         <td>Highly customizable with Flutter's widget system</td>
                         <td>Close to native appearance with custom UI components</td>
-                    </tr>
-                    <!-- Code Reusability -->
-                    <tr>
+                     </tr>
+                     <!-- Code Reusability -->
+                     <tr>
                         <td>Code Reusability</td>
                         <td>High (Same code for multiple platforms)</td>
                         <td>Moderate (Some platform-specific code may be required)</td>
                         <td>Moderate (Reusable, but platform-specific tweaks needed)</td>
-                    </tr>
-                    <!-- Learning Curve -->
-                    <tr>
+                     </tr>
+                     <!-- Learning Curve -->
+                     <tr>
                         <td>Learning Curve</td>
                         <td>Low (Familiar to web developers)</td>
                         <td>Moderate (Requires learning Dart)</td>
                         <td>Moderate (Requires knowledge of JavaScript and JSX)</td>
-                    </tr>
-                    <!-- Community Support -->
-                    <tr>
+                     </tr>
+                     <!-- Community Support -->
+                     <tr>
                         <td>Community Support</td>
                         <td>Established but declining</td>
                         <td>Growing rapidly with strong Google backing</td>
                         <td>Strong and established with Facebook backing</td>
-                    </tr>
-                    <!-- Ecosystem and Plugins -->
-                    <tr>
+                     </tr>
+                     <!-- Ecosystem and Plugins -->
+                     <tr>
                         <td>Ecosystem and Plugins</td>
                         <td>Wide range of plugins but some are outdated</td>
                         <td>Growing plugin ecosystem with pub.dev</td>
                         <td>Rich plugin ecosystem supported by npm</td>
-                    </tr>
-                    <!-- Debugging and Testing -->
-                    <tr>
+                     </tr>
+                     <!-- Debugging and Testing -->
+                     <tr>
                         <td>Debugging and Testing</td>
                         <td>Relies on browser-based debugging tools</td>
                         <td>Strong debugging tools integrated into Flutter SDK</td>
                         <td>Supports debugging with Chrome DevTools and React DevTools</td>
-                    </tr>
-                    <!-- Platform Support -->
-                    <tr>
+                     </tr>
+                     <!-- Platform Support -->
+                     <tr>
                         <td>Platform Support</td>
                         <td>iOS, Android, Windows, and more</td>
                         <td>iOS, Android, and Web</td>
                         <td>iOS, Android</td>
-                    </tr>
-                    <!-- Offline Capability -->
-                    <tr>
+                     </tr>
+                     <!-- Offline Capability -->
+                     <tr>
                         <td>Offline Capability</td>
                         <td>Depends on developer's implementation</td>
                         <td>Strong support through state management and local storage</td>
                         <td>Well-supported through state management libraries</td>
-                    </tr>
-                    <!-- Use Case Suitability -->
-                    <tr>
+                     </tr>
+                     <!-- Use Case Suitability -->
+                     <tr>
                         <td>Best Use Cases</td>
                         <td>Simple apps and prototypes</td>
                         <td>High-performance apps and complex UIs</td>
                         <td>Apps requiring native-like experience</td>
-                    </tr>
-                    <!-- Licensing -->
-                    <tr>
+                     </tr>
+                     <!-- Licensing -->
+                     <tr>
                         <td>Licensing</td>
                         <td>Open Source (Apache 2.0 License)</td>
                         <td>Open Source (BSD License)</td>
                         <td>Open Source (MIT License)</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-        </section>
-
-        <!-- Offline Support Section -->
-        <section id="offline-support">
-            <h2>Offline Support</h2>
-            <p>
-                This page is designed to be accessible even when offline, using a service worker to cache assets.
-            </p>
-        </section>
-
-        <!-- References Section -->
-        <section id="references">
-            <h2>References</h2>
-            <ul>
-                <li><a href="https://cordova.apache.org/" target="_blank">PhoneGap/Cordova Official Site</a></li>
-                <li><a href="https://flutter.dev/" target="_blank">Flutter Official Site</a></li>
-                <li><a href="https://reactnative.dev/" target="_blank">React Native Official Site</a></li>
-            </ul>
-        </section>
-    </div>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        &copy; Ahmet Sahiner || <a href="mailto:asahiner@mail.ccsf.edu">asahiner@mail.ccsf.edu</a> ||
-        <a href="https://hills.ccsf.edu/~asahiner/hw1.html">Back to Homework 1</a>
-     </footer>
-
-    <!-- Service Worker Section -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('/service-worker.js')
-                .then(() => console.log('Service Worker registered successfully.'))
-                .catch((error) => console.error('Service Worker registration failed:', error));
-        }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-           const isoString = new Date().toISOString();
-           const formattedTime = new Date().toLocaleString(); 
-       
-           const time = document.createElement("time");
-           time.setAttribute("datetime", isoString);
-           time.innerText = `Last updated: ${formattedTime}`;
-       
-           const footer = document.querySelector("footer");
-           footer.insertAdjacentElement("afterbegin", time); 
-       });
-     </script>
-    <script src="hybrid.js"></script>
-</body>
+                     </tr>
+                  </tbody>
+               </table>
+            </section>
+            <!-- Offline Support Section -->
+            <section id="offline-support">
+               <h2>Offline Support</h2>
+               <p>
+                  This page is designed to be accessible even when offline, using a service worker to cache assets.
+               </p>
+            </section>
+            <!-- References Section -->
+            <section id="references">
+               <h2>References</h2>
+               <ul>
+                  <li><a href="https://cordova.apache.org/" target="_blank">PhoneGap/Cordova Official Site</a></li>
+                  <li><a href="https://flutter.dev/" target="_blank">Flutter Official Site</a></li>
+                  <li><a href="https://reactnative.dev/" target="_blank">React Native Official Site</a></li>
+               </ul>
+            </section>
+         </div>
+      </main>
+      <!-- Footer Section -->
+      <footer>
+         &copy; Ahmet Sahiner || <a href="mailto:asahiner@mail.ccsf.edu">asahiner@mail.ccsf.edu</a> ||
+         <a href="https://hills.ccsf.edu/~asahiner/hw1.html">Dive Into My JavaScript Portfolio</a>
+      </footer>
+      <!-- Service Worker Section -->
+      <script>
+         if ('serviceWorker' in navigator) {
+             navigator.serviceWorker
+                 .register('/service-worker.js')
+                 .then(() => console.log('Service Worker registered successfully.'))
+                 .catch((error) => console.error('Service Worker registration failed:', error));
+         }
+      </script>
+      <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            const isoString = new Date().toISOString();
+            const formattedTime = new Date().toLocaleString(); 
+         
+            const time = document.createElement("time");
+            time.setAttribute("datetime", isoString);
+            time.innerText = `Last updated: ${formattedTime}`;
+         
+            const footer = document.querySelector("footer");
+            footer.insertAdjacentElement("afterbegin", time); 
+         });
+      </script>
+      <script src="hybrid.js"></script>
+   </body>
 </html>
