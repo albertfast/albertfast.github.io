@@ -11,8 +11,8 @@
       <meta name="theme-color" content="#ffffff">
       <link rel="shortcut icon" href="openweather.ico" type="image/x-icon">
       <link rel="manifest" href="manifest.json">
-      <link rel="icon" href="openweather2.ico" type="image/x-icon">
-      <link rel="icon" href="openweather.ico" type="image/x-icon">
+      <link rel="icon" href="openweather2.ico"  type="image/x-icon">
+      <link rel="icon" href="openweather.ico"  type="image/x-icon">
       <link rel="icon" href="pabloramon144.png" sizes="144x144" type="image/png">
       <link rel="icon" href="pabloramon144.webp" sizes="144x144" type="image/webp">
       <link rel="icon" href="pabloramon192.png" sizes="192x192" type="image/png">
@@ -22,10 +22,11 @@
       <style>
          * { margin: 0; padding: 0; border: 0; box-sizing: border-box; }
          body { font-family: Arial, sans-serif; color: #333; }
-         div#header, .content { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: rgba(241, 243, 226, 0.7); border-radius: 10px; font-weight: bold;}
+         div#header, .content, footer { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: rgba(241, 243, 226, 0.7); border-radius: 10px; }
+         footer {  text-align: center; display: flex; justify-content: center; align-items: center; gap: 20px; font-weight: bold;}
          div#header { color: #ffffff; min-height: 150px; }
          div#header h1 { color: rgb(159, 16, 172); text-align: center; margin-bottom: 10px; }
-         div#header a { color: #8f10cf; font-weight: bold; }
+         div#header a { color: #000; font-weight: bold; }
          figure.background-figure { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; margin: 0; }
          figure.background-figure img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
          .content { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: rgba(226, 237, 243, 0.7); border-radius: 10px; overflow: hidden; }
@@ -42,14 +43,11 @@
          #demo th { background-color: rgba(13, 6, 210, 0.7); color: #a9a9a5; }
          #demo tr:nth-child(even) { background-color: rgba(149, 20, 163, 0.7); }
          #demo tr:nth-child(odd) { background-color: rgba(22, 126, 205, 0.7); }
-         .weather-box { background-color: rgba(22, 126, 205, 0.7); padding: 15px; border-radius: 10px; max-width: 300px; margin: 20px auto; text-align: center; }
-         .weather-box h2 { display: inline-block; margin-right: 10px; font-size: 1.5em; color: white; }
-         .weather-box img { vertical-align: middle; }
-         .weather-box p { margin: 10px 0; font-size: 16px; color: white; }
-         .weather-box p strong { font-size: 18px; }
-         div#footer { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: rgba(241, 243, 226, 0.7); border-radius: 10px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 20px; font-weight: bold; }
-         #footer a { color: #8f10cf; text-decoration: none; }
-         #footer a:hover { color: #0e7cbc; }
+        .weather-box { background-color: rgba(22, 126, 205, 0.7); padding: 15px; border-radius: 10px; max-width: 300px; margin: 20px auto; text-align: center; }
+        .weather-box h2 { display: inline-block; margin-right: 10px; font-size: 1.5em; color: white; }
+        .weather-box img { vertical-align: middle; }
+        .weather-box p { margin: 10px 0; font-size: 16px; color: white; }
+        .weather-box p strong { font-size: 18px; }
          @media (max-width: 900px) { .left-column, .right-column { float: none; display: block; width: 100%; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.9em; padding: 8px; } input, button { width: 95%; margin: 5px auto; display: block; } }
          @media (max-width: 600px) { body { font-size: 0.9em; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.8em; padding: 5px; } #demo th:nth-child(4), #demo td:nth-child(4), #demo th:nth-child(6), #demo td:nth-child(6) {display: table-cell; ; }  footer { text-align: center; color: #f0f0f0; background-color: #333; border: 5px solid #4092b5; font-size: large; }
          footer a { color: #87ceeb; text-decoration: none; font-weight: bold; }
@@ -90,10 +88,10 @@
                <p>In summary, OpenWeatherMap offers reliable, scalable, and developer-friendly weather data, empowering <strong>Why Not Innovations</strong> to deliver a dynamic and engaging application.</p>
             </div>
          </div>
-         <div id="footer">
-            <p>Contact me: <a href="mailto:asahiner@mail.ccsf.edu">asahiner@mail.ccsf.edu</a></p>
-            <p><a href="https://www.ccsf.edu" target="_blank" title="Open in a new window">Visit CCSF</a></p>
-         </div>
+         <footer>
+            &copy; Ahmet Sahiner || <a href="mailto:asahiner@mail.ccsf.edu">asahiner@mail.ccsf.edu</a> ||
+            <a href="https://hills.ccsf.edu/~asahiner/hw1.html">Back to Homework 1</a>
+         </footer>
       </main>
       <script>
          function loadDoc() {
@@ -168,7 +166,7 @@
                  description = description.split(' ').map(function(word) {
                      return word.charAt(0).toUpperCase() + word.slice(1);
                  }).join(' ');
-         
+        
                 // Display the weather information in a styled box
                 resultDiv.innerHTML = 
                     '<div class="weather-box">' +
@@ -184,27 +182,28 @@
              }
          }       
       </script>
+
       <script>
-         if ('serviceWorker' in navigator) {
-             navigator.serviceWorker
-                 .register('service-worker.js')
-                 .then(() => console.log('Service Worker registered successfully.'))
-                 .catch((error) => console.error('Service Worker registration failed:', error));
-         }
-      </script>
-      <script>
-         document.addEventListener("DOMContentLoaded", function () {
-            const isoString = new Date().toISOString();
-            const formattedTime = new Date().toLocaleString(); 
-         
-            const time = document.createElement("time");
-            time.setAttribute("datetime", isoString);
-            time.innerText = `Last updated: ${formattedTime}`;
-         
-            const footer = document.querySelector("#footer");
-            footer.insertAdjacentElement("afterbegin", time); 
-         });
-      </script>
-      <script src="ajaxassignment.js"></script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('service-worker.js')
+                .then(() => console.log('Service Worker registered successfully.'))
+                .catch((error) => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+           const isoString = new Date().toISOString();
+           const formattedTime = new Date().toLocaleString(); 
+       
+           const time = document.createElement("time");
+           time.setAttribute("datetime", isoString);
+           time.innerText = `Last updated: ${formattedTime}`;
+       
+           const footer = document.querySelector("footer");
+           footer.insertAdjacentElement("afterbegin", time); 
+       });
+     </script>
+    <script src="ajaxassignment.js"></script>
    </body>
 </html>
