@@ -34,6 +34,11 @@
          #demo th { background-color: rgba(13, 6, 210, 0.7); color: #a9a9a5; }
          #demo tr:nth-child(even) { background-color: rgba(149, 20, 163, 0.7); }
          #demo tr:nth-child(odd) { background-color: rgba(22, 126, 205, 0.7); }
+         .weather-box { background-color: rgba(22, 126, 205, 0.7); padding: 15px; border-radius: 10px; max-width: 300px; margin: 20px auto; text-align: center; }
+         .weather-box h2 { display: inline-block; margin-right: 10px; font-size: 1.5em; color: white; }
+         .weather-box img { vertical-align: middle; }
+         .weather-box p { margin: 10px 0; font-size: 16px; color: white; }
+         .weather-box p strong { font-size: 18px; }
          @media (max-width: 900px) { .left-column, .right-column { float: none; display: block; width: 100%; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.9em; padding: 8px; } input, button { width: 95%; margin: 5px auto; display: block; } }
          @media (max-width: 600px) { body { font-size: 0.9em; } #demo { display: table; width: 100%; overflow-x: auto; } #demo th, #demo td { font-size: 0.8em; padding: 5px; } #demo th:nth-child(4), #demo td:nth-child(4), #demo th:nth-child(6), #demo td:nth-child(6) { display: table-cell; }  footer { text-align: center; color: #f0f0f0; background-color: #333; border: 5px solid #4092b5; font-size: large; }
          footer a { color: #87ceeb; text-decoration: none; font-weight: bold; }
@@ -153,14 +158,14 @@
                      return word.charAt(0).toUpperCase() + word.slice(1);
                  }).join(' ');
          
-                 // Display the weather information in a styled box
-                 resultDiv.innerHTML = 
-                     '<div style="background-color: rgba(22, 126, 205, 0.7); padding: 15px; border-radius: 10px; max-width: 300px; margin: 20px auto; text-align: center;">' +
-                         '<h2 style="display: inline-block; margin-right: 10px;">Weather in ' + cityName + '</h2>' +
-                         '<img src="' + iconUrl + '" alt="' + description + '" style="vertical-align: middle;">' +
-                         '<p style="margin: 10px 0; font-size: 18px;"><strong>Temperature:</strong> ' + temp + ' °F</p>' +
-                         '<p style="margin: 10px 0; font-size: 16px;"><strong>Description:</strong> ' + description + '</p>' +
-                     '</div>';
+                // Display the weather information in a styled box
+                resultDiv.innerHTML = 
+                    '<div class="weather-box">' +
+                        '<h2>Weather in ' + cityName + '</h2>' +
+                        '<img src="' + iconUrl + '" alt="' + description + '">' +
+                        '<p><strong>Temperature:</strong> ' + temp + ' °F</p>' +
+                        '<p><strong>Description:</strong> ' + description + '</p>' +
+                    '</div>';
          
              } catch (error) {
                  console.error('Error calling the weather API:', error); // Log the error for debugging
