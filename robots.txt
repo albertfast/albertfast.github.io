@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Don't index legal boilerplate or error pages
+Disallow: /404.html
+
+Sitemap: https://orvli.tech/sitemap.xml

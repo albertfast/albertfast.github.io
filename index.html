@@ -1,13 +1,777 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/orvli/">
-<link rel="canonical" href="/orvli/">
-<title>ORVLI</title>
-<script>location.replace('/orvli/');</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <title>ORVLI — Independent App Studio (AI Photo, Dreams, Plants & More)</title>
+  <meta name="description"
+    content="ORVLI is an independent app studio. We originate, refine, validate, launch, and iterate — turning ideas into the apps people keep on their home screen.">
+  <meta name="author" content="ORVLI">
+  <meta name="keywords"
+    content="ORVLI, ORVLI apps, mobile apps, iOS apps, app studio, independent app studio, Retouchly, Somnia, Matria, Rootine, Radar Flow, Growlytics, AI apps">
+  <link rel="canonical" href="https://orvli.tech/">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ORVLI">
+  <meta property="og:title" content="ORVLI — Ideas, refined into products">
+  <meta property="og:description" content="An independent app studio. Originate · Refine · Validate · Launch · Iterate.">
+  <meta property="og:url" content="https://orvli.tech/">
+  <meta property="og:image" content="https://orvli.tech/assets/og/cover.png">
+  <meta property="og:image:secure_url" content="https://orvli.tech/assets/og/cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ORVLI — Ideas, refined into products">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ORVLI — Ideas, refined into products">
+  <meta name="twitter:description" content="An independent app studio. Originate · Refine · Validate · Launch · Iterate.">
+  <meta name="twitter:image" content="https://orvli.tech/assets/og/cover.png">
+  <meta name="twitter:image:alt" content="ORVLI — Ideas, refined into products">
+  <meta name="google-site-verification" content="qwdDAMJ4YkBzZoLNgffJ_9xXOCQp5HaFkp4rMGJOJvo" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Three.js for the 3D background (ES module + importmap) -->
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.169.0/build/three.module.js"
+  }
+}
+</script>
+  <script src="assets/js/main.js" defer></script>
+  <script type="module" src="assets/js/orvli.js"></script>
+
+  <!-- Structured data: Organization + WebSite + SoftwareApplications -->
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ORVLI",
+    "url": "https://orvli.tech/",
+    "logo": "https://orvli.tech/assets/icon-512.png",
+    "image": "https://orvli.tech/assets/og/cover.png",
+    "description": "An independent app studio. Originate · Refine · Validate · Launch · Iterate.",
+    "email": "hello@orvli.com",
+    "founders": [
+      { "@type": "Person", "name": "Ahmet Sahiner", "jobTitle": "Co-founder & Engineer" },
+      { "@type": "Person", "name": "Alperen Şirin", "jobTitle": "Co-founder" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61591936070699",
+      "https://www.instagram.com/orvliapps/"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ORVLI",
+    "url": "https://orvli.tech/",
+    "publisher": { "@type": "Organization", "name": "ORVLI" },
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "ORVLI Apps",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Retouchly",
+          "applicationCategory": "PhotographyApplication",
+          "operatingSystem": "iOS",
+          "url": "https://albertfast.github.io/retouchly/",
+          "description": "AI photo editor for portrait retouch, object removal, background replace, and upscaling.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Somnia",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "iOS",
+          "url": "https://albertfast.github.io/somnia/",
+          "description": "Private dream journal with AI Jungian interpretations and subconscious visualization.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Matria",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "iOS",
+          "url": "https://albertfast.github.io/matria/",
+          "description": "Evidence-based pregnancy tracker with milestone logging and local health monitoring.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Radar Flow",
+          "applicationCategory": "NavigationApplication",
+          "operatingSystem": "iOS",
+          "url": "https://albertfast.github.io/radar_tinder/",
+          "description": "Real-time radar detection with community reporting and navigation features.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Growlytics AI",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "url": "https://lumencommerce.onrender.com/",
+          "description": "AI-native growth intelligence platform for first-party data and media optimization.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }
+      }
+    ]
+  }
+]
+</script>
 </head>
-<body>
-Redirecting to <a href="/orvli/">ORVLI</a>…
+
+<body class="loading">
+
+  <!-- ============================ 3D BACKGROUND ============================ -->
+  <div id="orvli-canvas" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+    <span class="grain"></span>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- ============================ CUSTOM CURSOR ============================ -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- ============================ PAGE PROGRESS ============================ -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <!-- ============================ NAVIGATION ============================ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand" aria-label="ORVLI home">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
+          <!-- Open O / continuous loop -->
+          <path d="M26.5 8.7 A13 13 0 1 1 13.5 8.7" stroke="url(#g1)" stroke-width="4.2" stroke-linecap="round" />
+          <!-- V inside — direction -->
+          <path d="M14 15 L20 25 L26 15" stroke="url(#g1)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- Purple vertical spine — the product -->
+          <path d="M20 25 L20 30" stroke="#8b7bff" stroke-width="2.8" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0" stop-color="#7af0ff" />
+              <stop offset=".5" stop-color="#8b7bff" />
+              <stop offset="1" stop-color="#ff7ad9" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="nav__word">ORV<span class="nav__word--accent">LI</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#apps" data-nav>Apps</a>
+      <a href="#studio" data-nav>Studio</a>
+      <a href="#capabilities" data-nav>Capabilities</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+    <a href="#contact" class="nav__cta btn btn--ghost" data-magnetic>Start a project</a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ============================ MOBILE MENU ============================ -->
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="#apps">Apps</a>
+    <a href="#studio">Studio</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn--primary">Start a project</a>
+  </div>
+
+  <main id="top">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__badge reveal" data-reveal>
+          <span class="pulse"></span> Independent software studio
+        </div>
+        <h1 class="hero__title reveal" data-reveal>
+          <span class="line"><span>Ideas, refined</span></span>
+          <span class="line"><span class="grad">into products.</span></span>
+        </h1>
+        <p class="hero__sub reveal" data-reveal>
+          ORVLI is an independent app studio. We originate, refine, validate, launch, and
+          iterate. Ideas turn into beautiful, useful apps, from AI photo editing to dream
+          interpretation, plant care to radar detection.
+        </p>
+        <div class="hero__actions reveal" data-reveal>
+          <a href="#apps" class="btn btn--primary" data-magnetic>
+            Explore our apps <span class="btn__arrow">→</span>
+          </a>
+          <a href="#studio" class="btn btn--ghost" data-magnetic>The studio</a>
+        </div>
+        <div class="hero__stats reveal" data-reveal>
+          <div class="stat"><span class="stat__num" data-count="6">0</span><span class="stat__lbl">shipped
+              products</span></div>
+          <div class="stat"><span class="stat__num" data-count="4">0</span><span class="stat__lbl">on the App
+              Store</span></div>
+          <div class="stat"><span class="stat__num" data-count="100" data-suffix="%">0</span><span
+              class="stat__lbl">independent</span></div>
+        </div>
+        <div class="hero__loop reveal" data-reveal aria-hidden="true">
+          <span>O</span><span class="hero__loop-dot">·</span><span>R</span><span class="hero__loop-dot">·</span><span>V</span><span class="hero__loop-dot">·</span><span>L</span><span class="hero__loop-dot">·</span><span>I</span>
+        </div>
+      </div>
+
+      <a href="#manifesto" class="hero__scroll" aria-label="Scroll down">
+        <span class="hero__scroll-text">Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- ============================ MANIFESTO / ORVLI LOOP ============================ -->
+    <section class="manifesto" id="manifesto">
+      <div class="container">
+        <p class="manifesto__lead reveal" data-reveal>
+          ORVLI is how we work: <em>Originate, Refine, Validate, Launch, Iterate.</em>
+          An idea sparks. We strip it to its essence, check it against a real need, and ship it.
+          Then we keep refining it with the people who use it. The loop never closes; every product
+          stays in motion.
+        </p>
+
+        <!-- The O·R·V·L·I loop — the signature of the studio -->
+        <div class="loop reveal" data-reveal>
+          <div class="loop__step" data-step="O">
+            <div class="loop__mark"><span>O</span></div>
+            <div class="loop__body">
+              <h3 class="loop__name">Originate</h3>
+              <p class="loop__desc">Find the idea. The spark worth chasing.</p>
+            </div>
+          </div>
+          <div class="loop__step" data-step="R">
+            <div class="loop__mark"><span>R</span></div>
+            <div class="loop__body">
+              <h3 class="loop__name">Refine</h3>
+              <p class="loop__desc">Simplify. Strip it to its essence.</p>
+            </div>
+          </div>
+          <div class="loop__step loop__step--accent" data-step="V">
+            <div class="loop__mark"><span>V</span></div>
+            <div class="loop__body">
+              <h3 class="loop__name">Validate</h3>
+              <p class="loop__desc">Check it against a real need.</p>
+            </div>
+          </div>
+          <div class="loop__step" data-step="L">
+            <div class="loop__mark"><span>L</span></div>
+            <div class="loop__body">
+              <h3 class="loop__name">Launch</h3>
+              <p class="loop__desc">Ship the product. Put it in hands.</p>
+            </div>
+          </div>
+          <div class="loop__step loop__step--accent" data-step="I">
+            <div class="loop__mark"><span>I</span></div>
+            <div class="loop__body">
+              <h3 class="loop__name">Iterate</h3>
+              <p class="loop__desc">Grow it with the people who use it.</p>
+            </div>
+          </div>
+          <!-- The loop closes back to Originate — it never ends -->
+          <div class="loop__return" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            <span>loops back to Originate</span>
+          </div>
+        </div>
+
+        <p class="manifesto__foot reveal" data-reveal>
+          The name says it: an open <strong>O</strong> for a process that never stops evolving,
+          a <strong>V</strong> for direction and forward movement, and the purple spine of each
+          independent product running through it all.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ APPS ============================ -->
+    <section class="apps" id="apps">
+      <div class="container">
+        <header class="section-head reveal" data-reveal>
+          <span class="section-head__eyebrow">Our work</span>
+          <h2 class="section-head__title">Apps people keep.</h2>
+          <p class="section-head__sub">A portfolio of products we've designed, built, and shipped. Some solo, some
+            together, all ours.</p>
+        </header>
+
+        <div class="apps__grid">
+
+          <!-- Retouchly -->
+          <a class="appcard reveal" data-reveal data-tilt href="https://albertfast.github.io/retouchly/" target="_blank"
+            rel="noopener" aria-label="Visit Retouchly website">
+            <div class="appcard__glow"></div>
+            <div class="appcard__icon" data-icon="retouchly">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+                <rect x="6" y="6" width="36" height="36" rx="10" fill="url(#ig-retouch)" />
+                <circle cx="24" cy="24" r="9" stroke="#fff" stroke-width="2.4" fill="none" />
+                <circle cx="33" cy="15" r="2.4" fill="#fff" />
+                <defs>
+                  <linearGradient id="ig-retouch" x1="6" y1="6" x2="42" y2="42">
+                    <stop stop-color="#ff7ad9" />
+                    <stop offset="1" stop-color="#7af0ff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="appcard__body">
+              <div class="appcard__cat"><span class="tag tag--live">Live</span> AI Photo Editor</div>
+              <h3 class="appcard__name">Retouchly <span class="appcard__arrow">↗</span></h3>
+              <p class="appcard__desc">From snapshot to masterpiece in three taps. Portrait retouch, object removal,
+                background replace, upscale, and creative styles, all powered by AI.</p>
+              <div class="appcard__tags">
+                <span>AI retouch</span><span>Object removal</span><span>Upscale</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Somnia -->
+          <a class="appcard reveal" data-reveal data-tilt href="https://albertfast.github.io/somnia/" target="_blank"
+            rel="noopener" aria-label="Visit Somnia website">
+            <div class="appcard__glow"></div>
+            <div class="appcard__icon" data-icon="somnia">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+                <path d="M34 28a12 12 0 1 1-14-14 10 10 0 0 0 14 14Z" fill="url(#ig-somnia)" />
+                <circle cx="33" cy="17" r="1.8" fill="#fff" />
+                <circle cx="38" cy="22" r="1.2" fill="#fff" opacity=".8" />
+                <defs>
+                  <linearGradient id="ig-somnia" x1="20" y1="14" x2="34" y2="34">
+                    <stop stop-color="#8b7bff" />
+                    <stop offset="1" stop-color="#3a2d6e" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="appcard__body">
+              <div class="appcard__cat"><span class="tag tag--live">Live</span> Dream Journal & Interpreter</div>
+              <h3 class="appcard__name">Somnia <span class="appcard__arrow">↗</span></h3>
+              <p class="appcard__desc">Record your dreams, unlock AI Jungian interpretations, and visualize your
+                subconscious as art. A private dream journal for iOS.</p>
+              <div class="appcard__tags">
+                <span>Dream AI</span><span>Jungian</span><span>Private journal</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Matria -->
+          <a class="appcard reveal" data-reveal data-tilt href="https://albertfast.github.io/matria/" target="_blank"
+            rel="noopener" aria-label="Visit Matria website">
+            <div class="appcard__glow"></div>
+            <div class="appcard__icon" data-icon="matria">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+                <path d="M24 10c-6 0-10 5-10 11 0 8 10 17 10 17s10-9 10-17c0-6-4-11-10-11Z" fill="url(#ig-matria)" />
+                <circle cx="24" cy="21" r="4" fill="#fff" opacity=".9" />
+                <defs>
+                  <linearGradient id="ig-matria" x1="14" y1="10" x2="34" y2="38">
+                    <stop stop-color="#ff9ec7" />
+                    <stop offset="1" stop-color="#ff5e8a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="appcard__body">
+              <div class="appcard__cat"><span class="tag tag--live">Live</span> Pregnancy Tracker</div>
+              <h3 class="appcard__name">Matria <span class="appcard__arrow">↗</span></h3>
+              <p class="appcard__desc">Track. Learn. Prepare for baby. Log your milestones, monitor your health locally,
+                and get professional, evidence-based guidance.</p>
+              <div class="appcard__tags">
+                <span>Evidence-based</span><span>Local data</span><span>Milestones</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Rootine -->
+          <a class="appcard reveal" data-reveal data-tilt href="https://albertfast.github.io/rootineplanttracker/"
+            target="_blank" rel="noopener" aria-label="Visit Rootine website">
+            <div class="appcard__glow"></div>
+            <div class="appcard__icon" data-icon="rootine">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+                <path d="M24 40V20" stroke="#7bd88f" stroke-width="2.6" stroke-linecap="round" />
+                <path d="M24 26c-5 0-9-3-9-8 5 0 9 3 9 8ZM24 22c5 0 9-3 9-8-5 0-9 3-9 8Z" fill="url(#ig-root)" />
+                <defs>
+                  <linearGradient id="ig-root" x1="15" y1="14" x2="33" y2="26">
+                    <stop stop-color="#9affb0" />
+                    <stop offset="1" stop-color="#2fae6a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="appcard__body">
+              <div class="appcard__cat"><span class="tag tag--soon">Coming soon</span> Plant Care Companion</div>
+              <h3 class="appcard__name">Rootine <span class="appcard__arrow">↗</span></h3>
+              <p class="appcard__desc">Your plants' best friend. Rootine reminds, diagnoses, watches the weather, and
+                learns from growers worldwide, so every plant gets the care it deserves.</p>
+              <div class="appcard__tags">
+                <span>Smart reminders</span><span>Disease diagnosis</span><span>Weather-aware</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Radar Flow -->
+          <a class="appcard reveal" data-reveal data-tilt href="https://albertfast.github.io/radar_tinder/"
+            target="_blank" rel="noopener" aria-label="Visit Radar Flow website">
+            <div class="appcard__glow"></div>
+            <div class="appcard__icon" data-icon="radar">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="15" stroke="url(#ig-radar)" stroke-width="2.2" opacity=".4" />
+                <circle cx="24" cy="24" r="9" stroke="url(#ig-radar)" stroke-width="2.2" opacity=".6" />
+                <circle cx="24" cy="24" r="3" fill="url(#ig-radar)" />
+                <path d="M24 24L34 14" stroke="#fff" stroke-width="2.4" stroke-linecap="round" />
+                <defs>
+                  <linearGradient id="ig-radar" x1="9" y1="9" x2="39" y2="39">
+                    <stop stop-color="#7af0ff" />
+                    <stop offset="1" stop-color="#5b8bff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="appcard__body">
+              <div class="appcard__cat"><span class="tag tag--live">Live</span> Radar Detection</div>
+              <h3 class="appcard__name">Radar Flow <span class="appcard__arrow">↗</span></h3>
+              <p class="appcard__desc">Stay ahead of traffic enforcement. Real-time radar detection, community
+                reporting, and advanced navigation features in one professional app.</p>
+              <div class="appcard__tags">
+                <span>Real-time alerts</span><span>Community</span><span>Navigation</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Growlytics -->
+          <a class="appcard appcard--wide reveal" data-reveal data-tilt href="https://lumencommerce.onrender.com/"
+            target="_blank" rel="noopener" aria-label="Visit Growlytics AI website">
+            <div class="appcard__glow"></div>
+            <div class="appcard__icon" data-icon="growlytics">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+                <path d="M10 34L18 24L24 29L38 12" stroke="url(#ig-grow)" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+                <circle cx="38" cy="12" r="3" fill="#fff" />
+                <defs>
+                  <linearGradient id="ig-grow" x1="10" y1="34" x2="38" y2="12">
+                    <stop stop-color="#7af0ff" />
+                    <stop offset="1" stop-color="#8b7bff" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="appcard__body">
+              <div class="appcard__cat"><span class="tag tag--collab">Co-built</span> Growth Intelligence Platform</div>
+              <h3 class="appcard__name">Growlytics AI <span class="appcard__arrow">↗</span></h3>
+              <p class="appcard__desc">AI-native growth intelligence. Unify first-party data, score user value,
+                prescribe next-best-actions across paid media, and close the value-based bidding loop. Built together
+                with our co-founder Alperen Şirin.</p>
+              <div class="appcard__tags">
+                <span>First-party data</span><span>Predictive scoring</span><span>Media optimization</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <p class="apps__note reveal" data-reveal>
+          <span class="apps__note-dot"></span>
+          Four apps live on the App Store · Rootine coming soon
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ CAPABILITIES ============================ -->
+    <section class="capabilities" id="capabilities">
+      <div class="container">
+        <header class="section-head reveal" data-reveal>
+          <span class="section-head__eyebrow">What we do</span>
+          <h2 class="section-head__title">From idea to home screen.</h2>
+          <p class="section-head__sub">We cover the full product lifecycle in-house: research, design, engineering, and
+            launch. Here's our toolkit.</p>
+        </header>
+
+        <div class="cap__grid">
+          <div class="cap reveal" data-reveal>
+            <div class="cap__icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+            <h3>Product design</h3>
+            <p>Concept, UX architecture, interface design, and motion. We design for clarity first, delight second, and
+              never the other way around.</p>
+          </div>
+          <div class="cap reveal" data-reveal>
+            <div class="cap__icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 6L2 12l6 6M16 6l6 6-6 6" />
+              </svg>
+            </div>
+            <h3>Native iOS</h3>
+            <p>Swift, SwiftUI, and Core ML. We build for the platform properly: fast, accessible, and battery-friendly
+              by default.</p>
+          </div>
+          <div class="cap reveal" data-reveal>
+            <div class="cap__icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2" />
+              </svg>
+            </div>
+            <h3>AI integration</h3>
+            <p>On-device models, diffusion, and LLMs wired into real workflows: retouching, interpreting, diagnosing,
+              predicting.</p>
+          </div>
+          <div class="cap reveal" data-reveal>
+            <div class="cap__icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+                <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
+              </svg>
+            </div>
+            <h3>Backend & cloud</h3>
+            <p>Scalable APIs, data pipelines, and growth-intelligence infrastructure. The systems that make smart apps
+              smart.</p>
+          </div>
+          <div class="cap reveal" data-reveal>
+            <div class="cap__icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <h3>Privacy engineering</h3>
+            <p>On-device-first data strategies, clear policies, and App Store-ready compliance. Privacy as a feature,
+              not an afterthought.</p>
+          </div>
+          <div class="cap reveal" data-reveal>
+            <div class="cap__icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12h4l3-8 4 16 3-8h4" />
+              </svg>
+            </div>
+            <h3>Growth & analytics</h3>
+            <p>From launch strategy to value-based bidding. We instrument what matters and let data drive the roadmap.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STUDIO / FOUNDERS ============================ -->
+    <section class="studio" id="studio">
+      <div class="container">
+        <header class="section-head reveal" data-reveal>
+          <span class="section-head__eyebrow">The studio</span>
+          <h2 class="section-head__title">Two founders. One craft.</h2>
+          <p class="section-head__sub">ORVLI is a two-person studio. We're hands-on, opinionated, and ship our own
+            products end-to-end.</p>
+        </header>
+
+        <div class="founders">
+          <article class="founder reveal" data-reveal>
+            <div class="founder__avatar" aria-hidden="true">
+              <span>AS</span>
+              <div class="founder__ring"></div>
+            </div>
+            <h3 class="founder__name">Ahmet Sahiner</h3>
+            <p class="founder__role">Co-founder & Engineer</p>
+            <p class="founder__bio">Full-stack developer and Salesforce-certified engineer. Designs and builds the apps
+              end-to-end, from SwiftUI screens to the cloud services behind them.</p>
+            <div class="founder__links">
+              <a href="https://albertfast.github.io/asahiner/" target="_blank" rel="noopener">Portfolio ↗</a>
+            </div>
+          </article>
+
+          <article class="founder reveal" data-reveal>
+            <div class="founder__avatar" aria-hidden="true">
+              <span>AŞ</span>
+              <div class="founder__ring founder__ring--alt"></div>
+            </div>
+            <h3 class="founder__name">Alperen Şirin</h3>
+            <p class="founder__role">Co-founder</p>
+            <p class="founder__bio">Co-builds Growlytics AI and shapes the studio's growth strategy. Focuses on product
+              direction, data, and bringing the business side of ORVLI to life.</p>
+            <div class="founder__links">
+              <span class="founder__link-static">Growlytics AI ↗</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="studio__note reveal" data-reveal>
+          <p><strong>How we work.</strong> The app portfolio is designed and engineered in-house. Growlytics AI is our
+            joint venture with Alperen, a deeper, data-heavy product that reflects the studio's full range. Everything
+            else is ours, solo, from concept to App Store.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="contact" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__copy reveal" data-reveal>
+          <span class="section-head__eyebrow">Let's talk</span>
+          <h2 class="contact__title">Have an idea worth building?</h2>
+          <p class="contact__sub">Whether you're a founder, a partner, or just curious about what we do, we'd love to
+            hear from you. Drop us a line and we'll get back within a couple of days.</p>
+          <ul class="contact__list">
+            <li><span>Email</span><a href="mailto:hello@orvli.com">hello@orvli.com</a></li>
+            <li><span>Social</span>
+              <a href="https://www.instagram.com/orvliapps/?hl=en" target="_blank" rel="noopener">Instagram ↗</a>
+              <a href="https://www.facebook.com/profile.php?id=61591936070699" target="_blank" rel="noopener"
+                style="margin-left:.6rem">Facebook ↗</a>
+            </li>
+            <li><span>Studio</span><span class="muted">Independent · Remote · Worldwide</span></li>
+          </ul>
+        </div>
+
+        <form class="contact__form glass reveal" data-reveal id="contactForm" novalidate>
+          <div class="field">
+            <label for="cName">Your name</label>
+            <input type="text" id="cName" name="name" required autocomplete="name" placeholder="What should we call you?">
+          </div>
+          <div class="field">
+            <label for="cEmail">Email</label>
+            <input type="email" id="cEmail" name="email" required autocomplete="email" placeholder="you@somewhere.com">
+          </div>
+          <div class="field">
+            <label for="cSubject">What's this about?</label>
+            <select id="cSubject" name="subject">
+              <option>A new project</option>
+              <option>Partnership</option>
+              <option>Press / media</option>
+              <option>Just saying hi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cMsg">Message</label>
+            <textarea id="cMsg" name="message" rows="4" required placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-magnetic>
+            Send message <span class="btn__arrow">→</span>
+          </button>
+          <p class="contact__form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================ CTA STRIP ============================ -->
+    <section class="cta">
+      <div class="container cta__inner reveal" data-reveal>
+        <h2 class="cta__title">The best apps feel like magic.<br><span class="grad">We build the magic.</span></h2>
+        <a href="#contact" class="btn btn--primary btn--lg" data-magnetic>Start a conversation <span
+            class="btn__arrow">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="nav__brand">
+          <span class="nav__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="28" height="28" fill="none">
+              <path d="M26.5 8.7 A13 13 0 1 1 13.5 8.7" stroke="url(#g2)" stroke-width="4.2" stroke-linecap="round" />
+              <path d="M14 15 L20 25 L26 15" stroke="url(#g2)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20 25 L20 30" stroke="#8b7bff" stroke-width="2.8" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="g2" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0" stop-color="#7af0ff" />
+                  <stop offset=".5" stop-color="#8b7bff" />
+                  <stop offset="1" stop-color="#ff7ad9" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="nav__word">ORV<span class="nav__word--accent">LI</span></span>
+        </a>
+        <p class="footer__tag">Ideas, refined into products.</p>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>Studio</h4>
+          <a href="#studio">About</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#apps">Apps</a>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <a href="mailto:hello@orvli.com">Email</a>
+          <a href="https://www.instagram.com/orvliapps/?hl=en" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61591936070699" target="_blank" rel="noopener">Facebook</a>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> ORVLI. All rights reserved.</p>
+      <p class="footer__made">Originate · Refine · Validate · Launch · Iterate</p>
+    </div>
+  </footer>
+
 </body>
+
 </html>

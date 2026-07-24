@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#05070d"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <radialGradient id="b1" cx="180" cy="120" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7af0ff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#7af0ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b2" cx="1040" cy="180" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8b7bff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#8b7bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b3" cx="640" cy="600" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7ad9" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ff7ad9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7af0ff"/>
+      <stop offset=".5" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#ff7ad9"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="560" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7af0ff"/>
+      <stop offset="1" stop-color="#ff7ad9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#b1)"/>
+  <rect width="1200" height="630" fill="url(#b2)"/>
+  <rect width="1200" height="630" fill="url(#b3)"/>
+
+  <!-- ORVLI logo mark: open O (continuous loop) + inner V (direction) + purple spine (product) -->
+  <g transform="translate(120,142)">
+    <!-- Open O / open loop -->
+    <path d="M40 4 A36 36 0 1 1 4 40" fill="none" stroke="url(#mark)" stroke-width="11" stroke-linecap="round"/>
+    <!-- V inside -->
+    <path d="M14 22 L28 44 L42 22" fill="none" stroke="url(#mark)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Purple vertical spine -->
+    <path d="M28 44 L28 54" fill="none" stroke="#8b7bff" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="200" y="195" font-family="Sora, Arial, sans-serif" font-size="48" font-weight="800" fill="#eef1f7" letter-spacing="-1">ORVLI</text>
+
+  <!-- headline -->
+  <text x="120" y="330" font-family="Sora, Arial, sans-serif" font-size="92" font-weight="800" fill="#eef1f7" letter-spacing="-3">Ideas, refined</text>
+  <text x="120" y="420" font-family="Sora, Arial, sans-serif" font-size="92" font-weight="800" fill="url(#word)" letter-spacing="-3">into products.</text>
+
+  <text x="120" y="500" font-family="Manrope, Arial, sans-serif" font-size="26" fill="#b9c0d0">An independent app studio. Originate · Refine · Validate · Launch · Iterate.</text>
+
+  <text x="120" y="560" font-family="JetBrains Mono, monospace" font-size="18" fill="#7e879b" letter-spacing="2">RETOUCHLY · SOMNIA · MATRIA · ROOTINE · RADAR FLOW · GROWLYTICS</text>
+</svg>

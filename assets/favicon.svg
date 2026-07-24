@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="40" y2="40">
+      <stop offset="0" stop-color="#7af0ff"/>
+      <stop offset=".5" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#ff7ad9"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="9" fill="#05070d"/>
+  <!-- Open O / open loop — Originate → Iterate (the process never closes) -->
+  <path d="M26.5 8.7 A13 13 0 1 1 13.5 8.7" fill="none" stroke="url(#g)" stroke-width="4.2" stroke-linecap="round"/>
+  <!-- V inside — Validate: direction & forward movement -->
+  <path d="M14 15 L20 25 L26 15" fill="none" stroke="url(#g)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Purple vertical spine — the independent product emerging from the idea -->
+  <path d="M20 25 L20 30" fill="none" stroke="#8b7bff" stroke-width="2.8" stroke-linecap="round"/>
+</svg>
